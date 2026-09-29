@@ -330,7 +330,7 @@ $$ 12 = 6I \implies I = 2\text{ A} $$
 
 ---
 
-## 1.1.16 Circuit Classifications
+## 🏷️ 1.1.16 Circuit Classifications
 
 In electrical engineering, circuits and elements are classified based on their V-I characteristics, energy contribution, and directional properties.
 
@@ -356,7 +356,7 @@ In electrical engineering, circuits and elements are classified based on their V
 
 ---
 
-## 1.1.17 Section Summary
+## ⭐ 1.1.17 Section Summary
 
 ### Key Equations Table
 

@@ -1,14 +1,14 @@
 # Section 3.2: Pointers, Structure and Data Files in C Programming (ACtE0302)
 
-## 1. Introduction
+## 📖 1. Introduction
 While basic variables and arrays allow for simple data storage, pointers, structures, and files unlock the true power of C programming. Pointers provide direct memory access, enabling dynamic memory management and efficient array handling. Structures allow for grouping dissimilar data types, crucial for representing complex real-world entities. File I/O ensures data persistence, allowing programs to save and load data across executions.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 *   **Pointers:** Variables that store memory addresses of other variables.
 *   **Structures:** User-defined data types that bundle multiple variables of different types under a single name.
 *   **Files:** Streams of bytes stored on a secondary storage device (like a hard drive).
 
-## 3. Definition
+## ✏️ 3. Definition
 > **Pointer:** A variable whose value is the memory address of another variable.
 > **Structure:** A composite data type declaration that defines a physically grouped list of variables under one name in a block of memory.
 
@@ -107,7 +107,7 @@ Byte 5:  [float f]
 ...
 ```
 
-## 7. Comparison Tables
+## ⚖️ 7. Comparison Tables
 
 | Feature | Structure (`struct`) | Union (`union`) |
 | :--- | :--- | :--- |
@@ -116,7 +116,7 @@ Byte 5:  [float f]
 | **Accessibility** | All members can be accessed simultaneously. | Only one member can be accessed at a time. |
 | **Initialization** | Multiple members can be initialized at once. | Only the first member can be initialized at declaration. |
 
-## 8. Worked Examples
+## 🔍 8. Worked Examples
 
 ### Example 1: Array of Structures
 ```c
@@ -178,14 +178,14 @@ int main() {
 }
 ```
 
-## 9. Key Formulas Summary
+## 📝 9. Key Formulas Summary
 
 > [!NOTE]
 > **Pointer Arithmetic Formulas:**
 > *   `New_Address = Current_Address + (i * size_of_data_type)` (for `ptr + i`)
 > *   Difference between two pointers of same type = `(Address1 - Address2) / size_of_data_type`
 
-## 10. Common Mistakes / Exam Tips
+## 💡 10. Common Mistakes / Exam Tips
 
 > [!WARNING]
 > *   **Uninitialized Pointers:** Dereferencing an uninitialized pointer (wild pointer) causes segmentation faults (crashes).
@@ -197,7 +197,7 @@ int main() {
 > *   **Exam Strategy:** When asked to swap numbers, always write the Call by Reference (Pointer) version unless explicitly asked for something else. It demonstrates your understanding of pointers.
 > *   Remember the arrow operator (`->`) is just syntactic sugar for `(*ptr).member`.
 
-## 11. Practice Problems
+## ✏️ 11. Practice Problems
 
 1.  **Question:** Explain how `fseek()` is used for random file access with a code snippet.
     *Answer Sketch:* Discuss `fseek(fp, offset, origin)`. Snippet: `fseek(fp, 0, SEEK_END); long size = ftell(fp);` (finds file size).

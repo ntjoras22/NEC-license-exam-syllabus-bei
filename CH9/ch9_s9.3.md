@@ -1,9 +1,9 @@
-</Agent System Instructions>
-<Section 9.3: Switching Systems and Traffic Engineering (AEiE0903)>
-## 1. Introduction
+## Section 9.3 — Switching Systems and Traffic Engineering (AEiE0903)
+
+## 📖 1. Introduction
 This section explores the core routing mechanisms of telecommunication networks. It covers how calls and data are switched, how network traffic is engineered to ensure acceptable quality, and the signaling protocols used to control network resources.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 Switching allows a network to connect multiple devices without requiring point-to-point connections between every single pair. Traffic engineering applies mathematical models to dimension the network appropriately for expected user demand.
 
 > [!NOTE] Definition
@@ -23,7 +23,8 @@ A **Softswitch** is a central device in a telecommunications network which conne
 Key concepts for sizing telecommunication networks.
 
 - **Traffic Intensity (A)**: The measure of average occupancy of a server or resource. Measured in Erlangs. 1 Erlang = 1 resource occupied for 1 continuous hour.
-  $$ A = \lambda \times H $$
+
+$$ A = \lambda \times H $$
   Where $\lambda$ is the call arrival rate (calls/hour), and $H$ is the average holding time (hours/call).
 - **Busy Hour**: The continuous 60-minute period for which the traffic volume or number of call attempts is greatest. Network capacity is always designed for the busy hour.
 - **Grade of Service (GoS)**: The probability that a call is blocked or delayed. A GoS of 0.01 means 1% of calls are blocked during the busy hour. For a blocked-calls-cleared system, GoS is calculated using the Erlang B formula.
@@ -61,7 +62,7 @@ Network access protocols define how a user equipment connects to the network.
 - **CSMA/CA** (Carrier Sense Multiple Access with Collision Avoidance): Used in wireless LANs (Wi-Fi) since collision detection is difficult over radio.
 - **ALOHA / Slotted ALOHA**: Early random access protocols used in satellite and cellular networks for initial access requests.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Traffic intensity ($A$) is dimensionless but is expressed in units of Erlangs. Ensure your units for call arrival rate and holding time match (e.g., both in minutes or both in hours) before multiplying.
@@ -69,14 +70,14 @@ Network access protocols define how a user equipment connects to the network.
 > [!TIP]
 > GoS (Grade of Service) and QoS (Quality of Service) are different. GoS is a specific metric related to network capacity (blocking probability), while QoS is an umbrella term covering GoS, delay, jitter, bandwidth, etc.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - Traffic in Erlangs: $A = \lambda \times H$ (or $A = \frac{C \times h}{60}$ if $C$ is calls/min and $h$ is holding time in min).
 > - Total traffic: $A_T = \text{number of subscribers} \times \text{traffic per subscriber}$.
 > - Erlang B Formula (Blocking probability): $P_B = \frac{A^N / N!}{\sum_{k=0}^{N} (A^k / k!)}$, where $N$ is number of channels.
 
-## Practice Problems
+## ✏️ Practice Problems
 1. A telephone exchange observes 120 calls in a busy hour. The average duration of each call is 3 minutes. Calculate the traffic intensity in Erlangs.
    *Answer sketch: Call arrival rate $\lambda = 120$ calls/hour. Holding time $H = 3/60 = 0.05$ hours. Traffic $A = 120 \times 0.05 = 6$ Erlangs.*
 

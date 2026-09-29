@@ -1,10 +1,10 @@
 # Section 4.3: Input-Output Organization and Multiprocessor (ACtE0403)
 
-## 1. Introduction
+## 📖 1. Introduction
 
 The **Input-Output (I/O) organization** of a computer is one of the most critical aspects of computer architecture, responsible for bridging the gap between the high-speed CPU/Memory subsystem and the relatively slow, diverse external world. Without a well-designed I/O subsystem, the CPU would spend most of its time waiting for external devices, severely degrading system performance. Furthermore, as computational demands increase, a single processor often falls short, leading to the development of **multiprocessor systems** where multiple CPUs cooperate to execute tasks faster.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 
 > [!NOTE]
 > **Definition**: **I/O Organization** refers to the architecture, interfaces, and protocols that facilitate data transfer between the central processing unit (CPU), main memory, and external peripheral devices.
@@ -97,7 +97,7 @@ For large blocks of data, involving the CPU in every single word transfer is ine
 | **Data Transfer Rate** | Low | Medium | High |
 | **Best Used For** | Simple, slow devices | Moderate speed, unpredictable events | High-speed, large block transfers (disk, network) |
 
-## 7. Multiprocessor Characteristics
+## 💡 7. Multiprocessor Characteristics
 
 > [!NOTE]
 > A **Multiprocessor System** contains two or more independent CPUs that share access to main memory, peripherals, and the system bus, operating cooperatively to execute tasks.
@@ -172,7 +172,7 @@ When multiple processors access shared resources (like shared variables in memor
 3.  **Spinlocks**: A synchronization lock where a processor simply waits in a loop ("spins") repeatedly checking if the lock is available. Useful for very short wait times as it avoids context switching overhead, but wastes CPU cycles.
 4.  **Barriers**: A synchronization point where all processors in a group must arrive before any of them are allowed to proceed to the next phase of computation.
 
-## 10. Worked Examples
+## 🔍 10. Worked Examples
 
 **Example 1: DMA Transfer Time Calculation**
 A DMA controller transfers a block of $2$ KB data to memory. The system bus clock is $10$ MHz, and each word transfer (16 bits) takes $2$ clock cycles. If the disk transfer rate is $1$ MBps, how much time does the DMA transfer take assuming burst mode?
@@ -191,13 +191,13 @@ A multiprocessor system has $16$ processors and $16$ memory modules. If a crossb
 **Solution**:
 Number of switches = Processors $\times$ Memory Modules = $16 \times 16 = 256$.
 
-## 11. Exam Tips and Common Mistakes
+## 💡 11. Exam Tips and Common Mistakes
 *   **Polling vs Interrupt**: Remember that polling wastes CPU time looking for work, while interrupts let the work look for the CPU.
 *   **Cycle Stealing vs Burst Mode**: Cycle stealing slows down the CPU slightly but maintains responsiveness; burst mode locks out the CPU entirely but finishes the transfer faster.
 *   **Cache Coherence**: Often tested in multiprocessor sections. Know that it's a major issue in shared-memory systems but not in message-passing systems.
 *   **Symmetric vs Asymmetric**: SMP = all CPUs equal (peer-to-peer), ASMP = master/slave relationship.
 
-## 12. Practice Problems
+## ✏️ 12. Practice Problems
 
 1.  **Which data transfer technique requires the least CPU intervention?**
     a) Programmed I/O

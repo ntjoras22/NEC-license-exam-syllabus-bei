@@ -1,6 +1,6 @@
 # Section 3.4: Features of Object-Oriented Programming (ACtE0304)
 
-## 1. Introduction
+## 📖 1. Introduction
 This section dives into the advanced and powerful features of C++ Object-Oriented Programming. We explore how to extend operators to work with custom objects, how to convert between data types natively, and how to create hierarchical class relationships through inheritance. These features allow for highly expressive, reusable, and maintainable code.
 
 ## 2. Operator Overloading
@@ -271,7 +271,7 @@ Base Destructor
 */
 ```
 
-## 6. Common Mistakes / Exam Tips
+## 💡 6. Common Mistakes / Exam Tips
 - **Virtual Base Class**: Essential concept for the NEC exam. Understand that `virtual public` prevents multiple copies of a base class from being inherited.
 - **Constructor Execution Order**: Always Base first, then Derived. Destructors are the exact reverse. Think of it like building a house: foundation (Base) first, then roof (Derived). Tearing it down: roof first, then foundation.
 - **Operator Overloading Constraints**: You cannot overload these operators:
@@ -281,7 +281,7 @@ Base Destructor
   - Ternary conditional `?:`
   - `sizeof`
 
-## 7. Practice Problems
+## ✏️ 7. Practice Problems
 1. Write a complete C++ program to overload the `+` operator to concatenate two custom `String` objects.
 2. Demonstrate multiple inheritance where a `TeachingAssistant` inherits from both `Student` and `Teacher`. Resolve any potential ambiguity.
 3. Write a program showing data conversion from a class `Polar` (radius, angle) to a class `Rectangle` (x, y).

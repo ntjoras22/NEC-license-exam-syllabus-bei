@@ -1,14 +1,15 @@
-<Section 5.5: Application Layer (ACtE0505)>
-## 1. Introduction
+## 🔧 Section Application Layer (ACtE0505)
+
+## 📖 1. Introduction
 The Application Layer is the topmost layer of both the OSI and TCP/IP models. It provides the interface between the applications we use to communicate and the underlying network over which our messages are transmitted. For the NEC exam, understanding how different application protocols function and the architectures they rely on is critical.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 The application layer contains the protocols and services that applications use to exchange data over a network. It does not refer to the application programs themselves (like a web browser), but rather to the protocols they use (like HTTP).
 
 > [!NOTE] Definition
 > **Application Layer**: The layer that provides services directly to the user application. It establishes communication partners, determines resource availability, and synchronizes communication.
 
-## 3. Application Architectures
+## 🔧 3. Application Architectures
 
 ### 3.1 Client-Server Model
 *   **Server**: Always-on host, permanent IP address, typically in data centers for scaling.
@@ -65,7 +66,7 @@ SNMP is an application-layer protocol used to manage and monitor network devices
 *   **Protocol**: UDP ports 161 (Agent) and 162 (Manager/Traps).
 *   **Operations**: Get, GetNext, Set (Manager to Agent), and Trap (Agent sends unsolicited alert to Manager).
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Do not confuse the roles of SMTP and POP3/IMAP. SMTP is *only* for sending/pushing emails. POP3/IMAP are for receiving/pulling emails.
@@ -74,7 +75,7 @@ SNMP is an application-layer protocol used to manage and monitor network devices
 > Remember the port numbers: FTP (20, 21), SSH (22), Telnet (23), SMTP (25), DNS (53), HTTP (80), POP3 (110), IMAP (143), SNMP (161/162), HTTPS (443).
 > FTP is "out-of-band" because control and data are on separate ports. HTTP is "in-band".
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > | Protocol | Transport | Port | Function |
@@ -85,7 +86,7 @@ SNMP is an application-layer protocol used to manage and monitor network devices
 | POP3/IMAP | TCP | 110/143 | Email retrieval (pull) |
 | FTP | TCP | 20, 21 | File transfer (data, control) |
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1.  **If a web page consists of a base HTML file and 5 JPEG images, how many TCP connections are required to download the page using non-persistent HTTP? How many for persistent HTTP?**
     *Answer:* Non-persistent: 1 + 5 = 6 separate TCP connections. Persistent: 1 TCP connection.

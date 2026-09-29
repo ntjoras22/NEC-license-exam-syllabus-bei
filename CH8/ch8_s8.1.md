@@ -1,8 +1,9 @@
-<Section 8.1: Finite Automata (AEiE0801)>
-## 1. Introduction
+## Section Finite Automata (AEiE0801)
+
+## 📖 1. Introduction
 Finite Automata (FA) is the simplest model of computation. It is a mathematical model of a system with discrete inputs and outputs. The system can be in any one of a finite number of internal configurations or "states". Finite Automata are fundamental in computer science, used in lexical analysis, text processing, pattern matching, and hardware design. For the NEC exam, understanding the mathematical definitions, conversions, and minimizations is crucial.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 A finite automaton consists of a finite set of states, a start state, a set of accept states, and transition rules that dictate how the automaton moves from one state to another based on input symbols.
 
 > [!NOTE] Definition
@@ -73,7 +74,7 @@ Operations on Regular Expressions:
 ### Arden's Theorem
 If $P$ and $Q$ are two regular expressions over $\Sigma$, and if $P$ does not contain $\epsilon$, then the equation $R = Q + RP$ has a unique solution given by $R = QP^*$. This is extensively used in converting DFAs to Regular Expressions.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > A common mistake is forgetting to compute the $\epsilon$-closure when converting $\epsilon$-NFA to DFA. Always ensure you consider all states reachable without consuming input.
@@ -83,7 +84,7 @@ If $P$ and $Q$ are two regular expressions over $\Sigma$, and if $P$ does not co
 > - Regular expression to DFA conversion usually involves finding the NFA first (Thompson's construction).
 > - In minimization, don't forget to eliminate unreachable states BEFORE applying the equivalence partition algorithm.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - DFA transition: $\delta(q, a) = p$
@@ -91,7 +92,7 @@ If $P$ and $Q$ are two regular expressions over $\Sigma$, and if $P$ does not co
 > - Equivalence: $L(NFA) = L(DFA)$
 > - Arden's Theorem: $R = Q + RP \implies R = QP^*$
 
-## Practice Problems
+## ✏️ Practice Problems
 1. **Problem**: Convert the regular expression $(0+1)^*10$ into an NFA.
    *Sketch*: Use Thompson's construction. Combine $(0+1)^*$ with a concatenation of $1$ and $0$.
 2. **Problem**: Minimize the DFA defined by states $\{A, B, C, D, E, F\}$, where start is $A$, final is $\{C, D, E\}$, and transitions are provided.

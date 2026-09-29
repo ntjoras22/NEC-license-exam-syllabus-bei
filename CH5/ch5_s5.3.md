@@ -1,9 +1,10 @@
-<Section 5.3: Network Layer (ACtE0503)>
+## Section Network Layer (ACtE0503)
 
-## 1. Introduction
+
+## 📖 1. Introduction
 The Network Layer (OSI Layer 3) is responsible for host-to-host delivery of packets across multiple networks. While the Data Link Layer handles node-to-node delivery on the same local network, the Network Layer provides the logical addressing and routing mechanisms necessary to traverse complex internetworks.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 The core function of the network layer is routing—determining the optimal path for a packet to travel from a source to a destination. The primary protocol functioning at this layer is the Internet Protocol (IP).
 
 > [!NOTE] Definition
@@ -85,7 +86,7 @@ Designed to overcome the address exhaustion of IPv4.
 - **Header**: Fixed at 40 bytes. Removes checksum for faster processing.
 - IPsec support is built-in.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Do not forget to subtract 2 when calculating the number of *usable hosts* per subnet ($2^h - 2$). However, do *not* subtract 2 when calculating the number of *subnets*.
@@ -93,14 +94,14 @@ Designed to overcome the address exhaustion of IPv4.
 > [!TIP]
 > RIP uses hop count. OSPF uses link state / cost based on bandwidth. Memorize these metrics, as they are frequently tested!
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - **Usable hosts per subnet**: $2^{(32 - \text{prefix})} - 2$
 > - **IPv4 address size**: 32 bits. **IPv6 address size**: 128 bits.
 > - **ARP**: IP $\rightarrow$ MAC.
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. **Problem**: An organization is assigned the block `172.16.0.0/16`. They want to create 100 subnets. What should the new subnet mask be?
    *Answer Sketch*: Find $n$ where $2^n \ge 100$. $2^7 = 128$. Borrow 7 bits. Old prefix was `/16`. New prefix is $16 + 7 = /23$. The subnet mask for `/23` is `255.255.254.0`.

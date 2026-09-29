@@ -1,6 +1,6 @@
 # Section 3.3: C++ Language Constructs with Objects and Classes (ACtE0303)
 
-## 1. Introduction
+## 📖 1. Introduction
 C++ is a superset of the C programming language that introduces Object-Oriented Programming (OOP) paradigms. While C focuses on procedural programming, C++ allows developers to define custom data types through classes, encapsulating data and behavior. This section details the foundational language constructs that differentiate C++ from C, providing the necessary building blocks for robust software engineering.
 
 ## 2. Namespace
@@ -438,13 +438,13 @@ int main() {
 }
 ```
 
-## 16. Common Mistakes / Exam Tips
+## 💡 16. Common Mistakes / Exam Tips
 1. **Semicolon missing**: Forgetting the semicolon `;` at the end of a class definition is a common compilation error.
 2. **Copy Constructor Signature**: The copy constructor MUST take its argument by reference (`ClassA(const ClassA &obj)`). If it takes by value (`ClassA(ClassA obj)`), the pass-by-value mechanism will attempt to call the copy constructor, leading to infinite recursion.
 3. **Static Member Initialization**: Static data members must be defined outside the class. Initializing them inside the class declaration will cause an error (unless they are `const static` integral types).
 4. **Delete vs Delete[]**: Always use `delete[]` when freeing memory allocated with `new[]`. Using `delete` on an array leads to undefined behavior.
 
-## 17. Practice Problems
+## ✏️ 17. Practice Problems
 1. Write a C++ program defining a `Bank` class with static member `totalBalance`. Demonstrate the use of static member functions.
 2. Differentiate between pass-by-value, pass-by-reference, and pass-by-pointer with clear code examples.
 3. Explain the necessity of the `this` pointer in method chaining (e.g., `obj.setX(10).setY(20);`).

@@ -1,8 +1,9 @@
-<Section 6.5: Signal and System (AEiE0605)>
-## 1. Introduction
+## Section Signal and System (AEiE0605)
+
+## 📖 1. Introduction
 Signals and Systems is the mathematical foundation of communication, control, and signal processing. For the NEC exam, understanding both continuous-time and discrete-time domains, Fourier analysis, and LTI systems is essential.
 
-## 2. Basic Signal Definitions
+## ✏️ 2. Basic Signal Definitions
 A signal is a function of one or more independent variables that contains information about the behavior or nature of some phenomenon.
 
 > [!NOTE] Definition
@@ -71,7 +72,7 @@ $$ x[n] = \frac{1}{2\pi} \int_{-\pi}^{\pi} X(e^{j\Omega}) e^{j\Omega n} d\Omega 
 - **Energy Spectral Density (ESD)**: For energy signals. $E = \int |x(t)|^2 dt = \frac{1}{2\pi}\int |X(\omega)|^2 d\omega$. ESD $\Psi(\omega) = |X(\omega)|^2$.
 - **Power Spectral Density (PSD)**: For power signals (e.g., periodic or random). $S_{xx}(\omega)$ is the Fourier transform of the autocorrelation function $R_{xx}(\tau)$.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Do not confuse $x(t) * h(t)$ (convolution) with normal multiplication. Convolution in the time domain equates to multiplication in the frequency domain.
@@ -79,14 +80,14 @@ $$ x[n] = \frac{1}{2\pi} \int_{-\pi}^{\pi} X(e^{j\Omega}) e^{j\Omega n} d\Omega 
 > [!TIP]
 > Remember that the Fourier transform of an impulse $\delta(t)$ is $1$, and the FT of a constant $1$ is $2\pi \delta(\omega)$.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - **Convolution**: $y(t) = \int x(\tau)h(t-\tau)d\tau$
 > - **CTFT of $e^{-at}u(t)$**: $\frac{1}{a + j\omega}$
 > - **Parseval's Theorem**: Energy in time domain equals energy in frequency domain.
 
-## Practice Problems
+## ✏️ Practice Problems
 1. **Problem**: Find the CTFT of $x(t) = e^{-at}u(t)$ for $a > 0$.
    **Answer Sketch**: $X(\omega) = \int_{0}^{\infty} e^{-at}e^{-j\omega t}dt = \int_0^\infty e^{-(a+j\omega)t}dt = \frac{1}{a+j\omega}$.
 2. **Problem**: A system has impulse response $h(t) = u(t)$ and input $x(t) = \delta(t) + \delta(t-1)$. Find $y(t)$.

@@ -1,9 +1,9 @@
-</Agent System Instructions>
-<Section 8.5: Two-Dimensional Transformation (AEiE0805)>
-## 1. Introduction
+## Section 8.5 — Two-Dimensional Transformation (AEiE0805)
+
+## 📖 1. Introduction
 Transformations are fundamental operations in computer graphics used to manipulate and alter the position, size, and orientation of objects. In 2D space, transformations are essential for animations, viewing pipelines, and model definitions. The NEC exam heavily focuses on mathematical formulations of these transformations using matrices.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 Any point in 2D space is represented as a coordinate $(x, y)$. A transformation alters this point to a new location $(x', y')$. 
 To combine multiple transformations easily, we use **Homogeneous Coordinates**, which represents a 2D point as a 3D vector $(x, y, 1)$.
 
@@ -45,28 +45,28 @@ $$
 ### 3.4 Reflection (Mirroring)
 Produces a mirror image of the object.
 - **Reflection about x-axis**: $y' = -y$
-  $$
+$$
   \begin{bmatrix} 1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
-  $$
+$$
 - **Reflection about y-axis**: $x' = -x$
-  $$
+$$
   \begin{bmatrix} -1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
-  $$
+$$
 - **Reflection about line $y = x$**: $x' = y$, $y' = x$
-  $$
+$$
   \begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}
-  $$
+$$
 
 ### 3.5 Shear Transformation
 Distorts the shape of an object, similar to sliding layers.
 - **X-shear** (shifts x coordinates based on y): $x' = x + sh_x \cdot y$, $y' = y$
-  $$
+$$
   \begin{bmatrix} 1 & sh_x & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
-  $$
+$$
 - **Y-shear** (shifts y coordinates based on x): $x' = x$, $y' = y + sh_y \cdot x$
-  $$
+$$
   \begin{bmatrix} 1 & 0 & 0 \\ sh_y & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
-  $$
+$$
 
 ## 4. 2D Composite Transformation
 Multiple transformations can be combined into a single composite matrix by multiplying the individual transformation matrices. 
@@ -121,7 +121,7 @@ $y = y_1 + t \cdot \Delta y$
 where $0 \le t \le 1$.
 It reformulates the clipping inequalities as $p_k \cdot t \le q_k$ for the 4 boundaries (left, right, bottom, top). It calculates the intersection parameter $t$ for all edges and updates the valid range $[t_{min}, t_{max}]$. If $t_{min} > t_{max}$, the line is completely outside.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Remember that matrix multiplication is performed right-to-left. A transformation $T$ followed by $R$ is written as $R \cdot T \cdot P$.
@@ -129,7 +129,7 @@ It reformulates the clipping inequalities as $p_k \cdot t \le q_k$ for the 4 bou
 > [!TIP]
 > In Cohen-Sutherland, remember the bit order is typically Top, Bottom, Right, Left (TBRL).
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > **Homogeneous Matrices**: Always $3 \times 3$ for 2D transformations.
@@ -137,7 +137,7 @@ It reformulates the clipping inequalities as $p_k \cdot t \le q_k$ for the 4 bou
 > Rotation involves sine and cosine terms in the upper left $2 \times 2$ block.
 > Scaling modifies the diagonal elements.
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. **Find the transformation matrix that reflects an object about the line $y = x$.**
    *Answer Sketch:* $x' = y$, $y' = x$. Matrix is $\begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}$.

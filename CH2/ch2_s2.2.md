@@ -1,9 +1,9 @@
 # Section 2.2: Combinational and Arithmetic Circuits (AExE0202)
 
-## 1. Introduction
+## 📖 1. Introduction
 Combinational logic circuits form the fundamental building blocks of modern digital systems, where the output depends solely on the current state of the inputs, without any memory elements. This section covers data routing circuits (Multiplexers/Demultiplexers), encoding/decoding circuits, and arithmetic circuits. These are heavily tested in the NEC Engineering License Exam as they are essential for microprocessor design and digital signal processing.
 
-## 2. Why Is It Important?
+## ⚠️ 2. Why Is It Important?
 - **Data Routing:** MUX and DEMUX are critical for time-division multiplexing (TDM) in communication systems.
 - **ALU Design:** Adders and subtractors are the core components of the Arithmetic Logic Unit (ALU) in CPUs.
 - **Memory Addressing:** Decoders are universally used for memory chip selection and address decoding.
@@ -11,7 +11,7 @@ Combinational logic circuits form the fundamental building blocks of modern digi
 
 ---
 
-## 2.2.1 Multiplexer (MUX)
+## 💡 2.2.1 Multiplexer (MUX)
 
 ### Basic Concept
 A multiplexer acts like a digitally controlled multi-position switch. It selects one of many input data lines and routes it to a single output line based on the value of the selection lines. 
@@ -122,7 +122,7 @@ Larger MUXes can be built using smaller ones. For example, to build an 8:1 MUX u
 
 ---
 
-## 2.2.2 Demultiplexer (DEMUX)
+## 💡 2.2.2 Demultiplexer (DEMUX)
 
 ### Basic Concept
 A demultiplexer does the exact opposite of a MUX. It takes a single input and routes it to one of many outputs.

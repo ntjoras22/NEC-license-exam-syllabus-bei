@@ -1,5 +1,6 @@
-<Section 9.5: IP Switching (AEiE0905)>
-## 1. Introduction
+## Section IP Switching (AEiE0905)
+
+## 📖 1. Introduction
 IP Switching represents a significant evolution in networking, aiming to combine the speed and predictability of ATM (Asynchronous Transfer Mode) switching with the ubiquity and flexibility of IP routing. Traditional routers examine every IP packet header to make routing decisions, which can be slow and computationally intensive. IP Switching techniques identify flows of packets and switch them directly at the hardware layer, bypassing the slower routing software. This section covers Ipsilon IP switching, flow classification, IP service models, and the structure of IP protocols.
 
 ## 2. Ipsilon IP Switching
@@ -14,7 +15,7 @@ Ipsilon Networks originally pioneered IP switching. The core concept of Ipsilon 
 > [!NOTE] Definition
 > **Flow**: A sequence of packets sent from a particular source to a particular destination that are related and require similar treatment by the network.
 
-## 3. Flow Classification
+## 🏷️ 3. Flow Classification
 Flow classification is the process of categorizing network traffic into different flows based on certain criteria. It is essential for QoS (Quality of Service) and IP switching.
 
 ### Criteria for Classification
@@ -96,18 +97,18 @@ The standard IPv4 header is 20 bytes long (without options).
 > [!TIP]
 > **Exam Tip**: Memorize the sizes of key fields. TTL is 8 bits, Total Length is 16 bits, and IP addresses are 32 bits. Also, remember that the Header Checksum only checks the header, not the data payload.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 - **Confusing IP switching with standard routing**: Standard routing processes every packet header in software; IP switching dynamically establishes a hardware path for a sequence of related packets (a flow).
 - **IHL value**: The IHL field represents the length in 32-bit words. If the header is 20 bytes, IHL = 5. Do not write 20.
 - **Fragmentation**: IP fragmentation happens at routers when the packet size exceeds the MTU of the outgoing link, but reassembly only happens at the final destination, not at intermediate routers.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 - Header size without options = 20 bytes.
 - Max IPv4 packet size = $65,535$ bytes.
 - Payload Length = Total Length - (IHL $\times$ 4)
 - Flow 5-tuple: Protocol, Src IP, Dst IP, Src Port, Dst Port.
 
-## Practice Problems
+## ✏️ Practice Problems
 
 **Problem 1**: An IPv4 packet arrives with the first 8 bits as `01000101` in binary. What is the version and the header length in bytes?
 **Solution Sketch**:

@@ -1,9 +1,9 @@
-</Agent System Instructions>
-<Section 8.6: Three-Dimensional Transformation (AEiE0806)>
-## 1. Introduction
+## Section 8.6 — Three-Dimensional Transformation (AEiE0806)
+
+## 📖 1. Introduction
 Three-dimensional graphics adds depth to objects, requiring the addition of a z-axis. Similar to 2D transformations, 3D transformations manipulate points in 3D space. This section covers 3D geometric transformations and how 3D scenes are projected onto a 2D display surface.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 A point in 3D space is represented as $(x, y, z)$. Using homogeneous coordinates, a 3D point is represented as a 4D vector $(x, y, z, 1)$. All transformation matrices become $4 \times 4$ matrices.
 
 > [!NOTE] Definition
@@ -31,27 +31,30 @@ $$
 In 3D, an object can be rotated about any of the three coordinate axes.
 
 - **Rotation about the Z-axis** (similar to 2D rotation):
-  $$ R_z(\theta) = \begin{bmatrix} \cos\theta & -\sin\theta & 0 & 0 \\ \sin\theta & \cos\theta & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} $$
+
+$$ R_z(\theta) = \begin{bmatrix} \cos\theta & -\sin\theta & 0 & 0 \\ \sin\theta & \cos\theta & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} $$
 
 - **Rotation about the X-axis**:
-  $$ R_x(\theta) = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & \cos\theta & -\sin\theta & 0 \\ 0 & \sin\theta & \cos\theta & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} $$
+
+$$ R_x(\theta) = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & \cos\theta & -\sin\theta & 0 \\ 0 & \sin\theta & \cos\theta & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} $$
 
 - **Rotation about the Y-axis**:
-  $$ R_y(\theta) = \begin{bmatrix} \cos\theta & 0 & \sin\theta & 0 \\ 0 & 1 & 0 & 0 \\ -\sin\theta & 0 & \cos\theta & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} $$
+
+$$ R_y(\theta) = \begin{bmatrix} \cos\theta & 0 & \sin\theta & 0 \\ 0 & 1 & 0 & 0 \\ -\sin\theta & 0 & \cos\theta & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} $$
 
 ### 3.4 Reflection
 Reflection can occur across the primary planes (xy-plane, yz-plane, xz-plane).
 - **Reflection across the xy-plane** ($z' = -z$):
-  $$
+$$
   \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}
-  $$
+$$
 
 ### 3.5 Shear Transformation
 Shearing in 3D shifts two coordinates based on the third coordinate.
 - **Z-shear** (x and y are shifted based on z):
-  $$
+$$
   \begin{bmatrix} 1 & 0 & sh_x & 0 \\ 0 & 1 & sh_y & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}
-  $$
+$$
 
 ## 4. 3D Composite Transformation
 Similar to 2D, complex 3D transformations are achieved by multiplying a sequence of basic transformation matrices.
@@ -105,7 +108,7 @@ Converting back to 3D by dividing by $w_h$: $x' = x / (z/d) = x \cdot d / z$.
 | **Application** | Exact measurements (CAD) | Realism (Games, Animations) |
 | **Parallel Lines** | Remain parallel | May converge at a vanishing point |
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Pay attention to the negative signs in 3D rotation matrices. For rotation about the Y-axis, the negative sine term is at the bottom left ($-\sin\theta$), which is opposite to X and Z axis rotations due to the right-handed coordinate system rule.
@@ -113,14 +116,14 @@ Converting back to 3D by dividing by $w_h$: $x' = x / (z/d) = x \cdot d / z$.
 > [!TIP]
 > In perspective projection, remember that division by the z-coordinate occurs during the conversion from homogeneous to Cartesian coordinates.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - 3D matrices are $4 \times 4$.
 > - **Orthographic Projection**: Preserves true lengths and parallel lines.
 > - **Perspective Projection**: Uses a Center of Projection (COP) and incorporates foreshortening.
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. **Write the $4 \times 4$ transformation matrix for a uniform scaling by a factor of 3.**
    *Answer Sketch:* A diagonal matrix with elements $(3, 3, 3, 1)$.

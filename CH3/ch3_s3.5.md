@@ -1,6 +1,6 @@
 # Section 3.5: Pure Virtual Function and File Handling (ACtE0305)
 
-## 1. Introduction
+## 📖 1. Introduction
 This section explores two fundamental concepts in C++: **Runtime Polymorphism** through virtual functions and **Persistent Storage** through file handling. These topics are crucial for the NEC License Exam as they test both advanced object-oriented design and practical data management skills.
 
 ## 2. Virtual Function and Dynamic Binding
@@ -364,7 +364,7 @@ The `ios` class provides several state flag functions to check for errors during
 
 ---
 
-## 8. Summary of Key Formulas and Concepts
+## 📝 8. Summary of Key Formulas and Concepts
 > **Quick Reference**
 > - Late Binding = `virtual` function + Base class pointer pointing to derived object.
 > - Pure Virtual = `virtual return_type func() = 0;` => Abstract Class.
@@ -373,7 +373,7 @@ The `ios` class provides several state flag functions to check for errors during
 
 ---
 
-## 9. Practice Problems
+## ✏️ 9. Practice Problems
 
 **Q1: What happens if an abstract class is instantiated?**
 A: A compile-time error occurs. Abstract classes cannot be instantiated because they have incomplete implementations (pure virtual functions).

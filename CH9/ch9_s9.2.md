@@ -1,9 +1,9 @@
-</Agent System Instructions>
-<Section 9.2: Equalization and Diversity Techniques (AEiE0902)>
-## 1. Introduction
+## Section 9.2 — Equalization and Diversity Techniques (AEiE0902)
+
+## 📖 1. Introduction
 This section focuses on techniques used in receiver design to mitigate the adverse effects of the wireless channel, such as Inter-Symbol Interference (ISI) and fading. Equalization and diversity are essential concepts for ensuring reliable high-speed data transmission in telecommunications, making them highly probable exam topics.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 When a signal passes through a wireless channel, multipath propagation causes different delayed versions of the signal to overlap at the receiver, causing Inter-Symbol Interference (ISI).
 
 > [!NOTE] Definition
@@ -30,7 +30,7 @@ Wireless channels are time-varying; therefore, the equalizer must track the chan
 - **Least Mean Squares (LMS)**: Simple, low computational complexity, but slow convergence.
 - **Recursive Least Squares (RLS)**: Fast convergence, but high computational complexity.
 
-## 5. Diversity Methods
+## ⚙️ 5. Diversity Methods
 If one radio path undergoes a deep fade, another independent path may have a strong signal. By having more than one path to select from, both the instantaneous and average SNRs at the receiver may be improved.
 
 ### Space Diversity (Antenna Diversity)
@@ -56,7 +56,7 @@ The same information is transmitted at different times.
 - Often implemented via channel coding and interleaving.
 - Drawback: Introduces latency.
 
-## Comparison of Diversity Techniques
+## ⚖️ Comparison of Diversity Techniques
 | Technique | Resource Used | Condition for Independence | Primary Advantage |
 |---|---|---|---|
 | Space Diversity | Multiple Antennas | Distance $d > \lambda/2$ | No extra bandwidth or time needed |
@@ -64,7 +64,7 @@ The same information is transmitted at different times.
 | Frequency | Spectrum | $\Delta f >$ Coherence Bandwidth | Good for frequency-selective fading |
 | Time | Time slots | $\Delta t >$ Coherence Time | Suitable for fast fading channels |
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Do not confuse Equalization and Diversity. Equalization combats ISI (caused by delay spread), while Diversity combats flat fading (caused by multipath interference causing deep nulls).
@@ -72,13 +72,13 @@ The same information is transmitted at different times.
 > [!TIP]
 > For questions on combining techniques, remember the hierarchy of performance: MRC is always better than EGC, which is better than Selection Diversity.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - **Selection Diversity SNR Improvement**: $\bar{\gamma} = \gamma_0 \sum_{k=1}^{M} \frac{1}{k}$ (where $\gamma_0$ is average SNR of one branch, M is number of branches).
 > - **Antenna Separation**: Must be $\ge \lambda/2$ to assure uncorrelated signals in uniform scattering environments.
 
-## Practice Problems
+## ✏️ Practice Problems
 1. A base station uses two antennas for space diversity. If the operating frequency is 1800 MHz, what is the minimum required separation distance between the antennas to ensure uncorrelated fading at the mobile unit? (Assume $\lambda/2$ rule).
    *Answer sketch: $\lambda = c/f = 3 \times 10^8 / 1800 \times 10^6 = 0.166$ m. Minimum separation = $\lambda/2 = 0.083$ m or 8.33 cm.*
 

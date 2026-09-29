@@ -1,8 +1,9 @@
-<Section 8.3: Turing Machine (AEiE0803)>
-## 1. Introduction
+## Section Turing Machine (AEiE0803)
+
+## 📖 1. Introduction
 The Turing Machine (TM) is the most powerful model of computation in formal language theory, capable of simulating any computer algorithm. Proposed by Alan Turing in 1936, it defines the theoretical limits of what can be computed (decidability). In the NEC exam, understanding the capabilities, variations, and complexities of TMs is essential.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 A Turing Machine consists of a finite state control, an infinite tape divided into cells (each holding one symbol), and a read/write head that can move left or right along the tape.
 
 > [!NOTE] Definition
@@ -48,7 +49,7 @@ A Universal Turing Machine can simulate the behavior of any other Turing Machine
 - **Space Complexity ($S(n)$)**: The maximum number of tape cells scanned by a TM on any input of length $n$.
 - Multi-tape TMs can sometimes solve problems faster than single-tape TMs, but space complexity remains roughly equivalent.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Remember that variations of Turing Machines (multi-tape, NTM) do NOT increase the class of languages they can recognize. They still only recognize Recursively Enumerable languages.
@@ -58,14 +59,14 @@ A Universal Turing Machine can simulate the behavior of any other Turing Machine
 > - Recursive languages are closed under complement, but Recursively Enumerable languages are not.
 > - A TM has infinite memory, unlike PDA and FA.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - TM Transition: $\delta(q, X) = (p, Y, D)$ where $D \in \{L, R\}$
 > - Class of Languages: FA (Regular) $\subset$ PDA (Context-Free) $\subset$ LBA (Context-Sensitive) $\subset$ TM (Recursively Enumerable).
 > - Church-Turing Thesis connects informal algorithms with formal TM models.
 
-## Practice Problems
+## ✏️ Practice Problems
 1. **Problem**: Design a TM to accept $L = \{0^n 1^n 2^n \mid n \ge 1\}$.
    *Sketch*: Replace '0' with 'X', move right to find first '1' and replace with 'Y', move right to find first '2' and replace with 'Z'. Return to left and repeat until all symbols are replaced.
 2. **Problem**: Explain the difference between a Recursive language and a Recursively Enumerable language.

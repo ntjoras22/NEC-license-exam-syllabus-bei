@@ -1,8 +1,9 @@
-<Section 5.6: Network Security (ACtE0506)>
-## 1. Introduction
+## Section Network Security (ACtE0506)
+
+## 📖 1. Introduction
 Network security encompasses the policies and practices adopted to prevent and monitor unauthorized access, misuse, modification, or denial of a computer network and network-accessible resources. In the NEC exam, you are expected to understand the cryptographic primitives and how they are applied across different network layers.
 
-## 2. Basic Concept & Security Goals
+## 💡 2. Basic Concept & Security Goals
 The foundational concepts of information security are often modeled as the CIA triad.
 
 > [!NOTE] Definition
@@ -84,7 +85,7 @@ A network security system that monitors and controls incoming/outgoing traffic b
 *   **Stateful Firewall**: Tracks the state of active connections.
 *   **Application Gateway (Proxy)**: Inspects application data (e.g., HTTP). Highly secure but slow.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Do not confuse the use of keys in encryption vs. digital signatures.
@@ -95,7 +96,7 @@ A network security system that monitors and controls incoming/outgoing traffic b
 > IPsec operates at the Network Layer (Layer 3). SSL/TLS operates at the Transport Layer (Layer 4). Firewalls can operate at layers 3, 4, or 7.
 > Remember the block sizes: DES=64-bit, AES=128-bit.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - RSA Modulus $n = p \times q$
@@ -103,7 +104,7 @@ A network security system that monitors and controls incoming/outgoing traffic b
 > - RSA Encryption: $C = P^e \bmod n$
 > - RSA Decryption: $P = C^d \bmod n$
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1.  **In an RSA algorithm, given primes $p=3$, $q=11$, and $e=7$. Find the decryption key $d$.**
     *Answer:*

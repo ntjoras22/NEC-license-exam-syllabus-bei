@@ -1,5 +1,6 @@
-<Section 6.4: Data Communication and Information Theory (AEiE0604)>
-## 1. Introduction
+## Section Data Communication and Information Theory (AEiE0604)
+
+## 📖 1. Introduction
 Data communication and information theory form the backbone of modern digital communication systems. For the NEC exam, understanding how analog signals are converted to digital form, how information is measured, and how data is reliably transmitted over noisy channels is crucial.
 
 ## 2. Process of Analog to Digital Communication System
@@ -57,14 +58,14 @@ Process of encoding information to reduce redundancy.
 - **Huffman Coding**
 Average code word length $L = \sum p(x_i) n_i$. Coding efficiency $\eta = H(X) / L$.
 
-## 6. Shannon-Hartley Channel Capacity Theorem
+## 🎓 6. Shannon-Hartley Channel Capacity Theorem
 Defines the maximum error-free data rate $C$ that can be transmitted over a channel with bandwidth $B$ and signal-to-noise ratio $S/N$.
 
 $$ C = B \log_2 \left( 1 + \frac{S}{N} \right) \text{ bps} $$
 
 As bandwidth $B \to \infty$, capacity limits to $C_\infty = 1.44 \frac{S}{N_0}$, where $N_0$ is noise power spectral density.
 
-## 7. Multiplexing
+## 💡 7. Multiplexing
 Combining multiple signals into one for transmission over a shared medium.
 - **FDM (Frequency Division Multiplexing)**: Different frequency bands.
 - **TDM (Time Division Multiplexing)**: Different time slots (common in PCM).
@@ -91,7 +92,7 @@ Adding redundancy to detect or correct errors.
 - **Block Codes**: Maps $k$ bits to $n$ bits ($n > k$). e.g., Hamming Codes.
 - **Convolutional Codes**: Generates parity bits continuously using shift registers.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Confusing data rate with baud rate. Data rate (bps) = Baud rate (symbols/s) $\times$ bits per symbol.
@@ -99,7 +100,7 @@ Adding redundancy to detect or correct errors.
 > [!TIP]
 > Memorize the PCM bandwidth formula: $BW \geq \frac{1}{2} R_b$, where $R_b = n \cdot f_s$.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - **Nyquist Rate**: $f_s \geq 2 f_{max}$
@@ -107,7 +108,7 @@ Adding redundancy to detect or correct errors.
 > - **Entropy**: $H(X) = - \sum p_i \log_2 p_i$
 > - **Shannon Capacity**: $C = B \log_2(1 + S/N)$
 
-## Practice Problems
+## ✏️ Practice Problems
 1. **Problem**: A continuous-time signal $x(t) = 10 \sin(1000\pi t)$ is sampled at Nyquist rate. Calculate the sampling frequency.
    **Answer Sketch**: Maximum frequency $f_m = 1000\pi / 2\pi = 500$ Hz. Nyquist rate $f_s = 2 f_m = 1000$ Hz.
 2. **Problem**: A telephone channel has $B = 3$ kHz and $S/N = 30$ dB. Calculate channel capacity.

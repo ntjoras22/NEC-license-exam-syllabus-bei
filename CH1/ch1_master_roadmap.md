@@ -217,7 +217,7 @@ graph TD
 
 ---
 
-## 4. Priority Classification
+## 🏷️ 4. Priority Classification
 
 ### 🔴 HIGH PRIORITY — Frequently tested, fundamental, high-value
 

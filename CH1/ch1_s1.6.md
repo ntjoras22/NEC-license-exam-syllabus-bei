@@ -1,9 +1,9 @@
 # Section 1.6: Amplifiers
 
-## 1. Introduction
+## 📖 1. Introduction
 Amplifiers are fundamental electronic circuits designed to increase the power, voltage, or current of an input signal without significantly distorting its waveform. From boosting a faint microphone signal to driving large loudspeakers, amplifiers form the backbone of modern electronics and communication systems. For the NEC Engineering License Examination, understanding the various classes of output stages, power handling components, tuned circuits, and the ubiquitous Operational Amplifier (Op-Amp) is absolutely critical.
 
-## 2. Why is it Important?
+## ⚠️ 2. Why is it Important?
 In real-world engineering, sensors, antennas, and transducers often output signals in the microvolt or millivolt range. These weak signals cannot drive loads like motors, speakers, or transmission lines. Amplifiers bridge this gap, taking small-signal inputs and providing large-signal power outputs. The NEC exam frequently tests the efficiency, biasing, and application of these stages to ensure engineers can design and troubleshoot practical analog systems.
 
 ---

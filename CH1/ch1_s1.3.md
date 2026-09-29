@@ -52,8 +52,12 @@ This shows why the output voltage is perfectly **sinusoidal**. One complete mech
 ## 2. Equations of AC Voltage and Current
 
 The general equations for sinusoidal AC quantities are:
-**Voltage:** $$v(t) = V_m \sin(\omega t + \phi)$$
-**Current:** $$i(t) = I_m \sin(\omega t + \phi)$$
+**Voltage:**
+
+$$v(t) = V_m \sin(\omega t + \phi)$$
+**Current:**
+
+$$i(t) = I_m \sin(\omega t + \phi)$$
 
 ### Variable Table
 | Symbol | Meaning | SI Unit |
@@ -94,7 +98,8 @@ The general equations for sinusoidal AC quantities are:
 
 **Definition:** The maximum amplitude reached by an alternating quantity during one cycle is called its peak value ($V_m$ or $I_m$).
 - **Peak-to-Peak Value ($V_{pp}$):** The total voltage swing from the positive peak to the negative peak. 
-  $$V_{pp} = 2V_m$$
+
+$$V_{pp} = 2V_m$$
 
 ---
 
@@ -134,13 +139,15 @@ The peak voltage you are exposed to is $V_m = 220 \times \sqrt{2} \approx 311.1$
 These factors describe the shape of the AC wave.
 
 - **Form Factor ($K_f$):** Ratio of RMS value to Average value.
-  $$K_f = \frac{V_{rms}}{V_{avg}} = \frac{V_m/\sqrt{2}}{2V_m/\pi} = \frac{\pi}{2\sqrt{2}} \approx 1.11$$
+
+$$K_f = \frac{V_{rms}}{V_{avg}} = \frac{V_m/\sqrt{2}}{2V_m/\pi} = \frac{\pi}{2\sqrt{2}} \approx 1.11$$
 - **Crest Factor ($K_c$ or Peak Factor):** Ratio of Peak value to RMS value.
-  $$K_c = \frac{V_m}{V_{rms}} = \frac{V_m}{V_m/\sqrt{2}} = \sqrt{2} \approx 1.414$$
+
+$$K_c = \frac{V_m}{V_{rms}} = \frac{V_m}{V_m/\sqrt{2}} = \sqrt{2} \approx 1.414$$
 
 ---
 
-## 8. Relationships Summary Table
+## ⭐ 8. Relationships Summary Table
 
 | Quantity | Formula | Value for Sine Wave |
 |---|---|---|
@@ -202,12 +209,16 @@ $$v_B = V_m \sin(\omega t - 240^\circ) = V_m \sin(\omega t + 120^\circ)$$
 ```
 - **Neutral wire** is available from the common star point ($N$).
 - **Line Current ($I_L$) vs Phase Current ($I_{ph}$):** They are the same series path.
-  $$I_L = I_{ph}$$
+
+$$I_L = I_{ph}$$
 - **Line Voltage ($V_L$) vs Phase Voltage ($V_{ph}$):**
-  $$V_{RY} = \vec{V}_{RN} - \vec{V}_{YN}$$
+
+$$V_{RY} = \vec{V}_{RN} - \vec{V}_{YN}$$
   Using phasor subtraction of two vectors separated by $120^\circ$:
-  $$V_L = \sqrt{V_{ph}^2 + V_{ph}^2 - 2V_{ph}V_{ph}\cos(120^\circ)} = \sqrt{3} V_{ph}$$
-  $$V_L = \sqrt{3} V_{ph}$$
+
+$$V_L = \sqrt{V_{ph}^2 + V_{ph}^2 - 2V_{ph}V_{ph}\cos(120^\circ)} = \sqrt{3} V_{ph}$$
+
+$$V_L = \sqrt{3} V_{ph}$$
 
 ### Delta (Δ) Connection
 ```text
@@ -221,11 +232,14 @@ $$v_B = V_m \sin(\omega t - 240^\circ) = V_m \sin(\omega t + 120^\circ)$$
 ```
 - No neutral wire exists.
 - **Line Voltage vs Phase Voltage:** The line terminals are directly connected across the phase coils.
-  $$V_L = V_{ph}$$
+
+$$V_L = V_{ph}$$
 - **Line Current vs Phase Current:** 
-  $$\vec{I}_R = \vec{I}_{RY} - \vec{I}_{BR}$$
+
+$$\vec{I}_R = \vec{I}_{RY} - \vec{I}_{BR}$$
   By phasor subtraction:
-  $$I_L = \sqrt{3} I_{ph}$$
+
+$$I_L = \sqrt{3} I_{ph}$$
 
 ### Three-Phase Power
 For a balanced system, total power is the sum of power in 3 phases.
@@ -233,9 +247,11 @@ $$P_{total} = 3 \times P_{phase} = 3 \times V_{ph} \times I_{ph} \times \cos(\ph
 
 Expressing in terms of Line quantities:
 - **In Star:** $V_{ph} = V_L/\sqrt{3}$, $I_{ph} = I_L$.
-  $$P = 3 \times \left(\frac{V_L}{\sqrt{3}}\right) \times I_L \times \cos(\phi) = \sqrt{3} V_L I_L \cos(\phi)$$
+
+$$P = 3 \times \left(\frac{V_L}{\sqrt{3}}\right) \times I_L \times \cos(\phi) = \sqrt{3} V_L I_L \cos(\phi)$$
 - **In Delta:** $V_{ph} = V_L$, $I_{ph} = I_L/\sqrt{3}$.
-  $$P = 3 \times V_L \times \left(\frac{I_L}{\sqrt{3}}\right) \times \cos(\phi) = \sqrt{3} V_L I_L \cos(\phi)$$
+
+$$P = 3 \times V_L \times \left(\frac{I_L}{\sqrt{3}}\right) \times \cos(\phi) = \sqrt{3} V_L I_L \cos(\phi)$$
 
 - **Active Power:** $P = \sqrt{3} V_L I_L \cos(\phi)$ (Watts, W)
 - **Reactive Power:** $Q = \sqrt{3} V_L I_L \sin(\phi)$ (Volt-Amperes Reactive, VAR)
@@ -251,7 +267,7 @@ Expressing in terms of Line quantities:
 
 ---
 
-## 11. Section Summary
+## ⭐ 11. Section Summary
 
 ### Worked Numerical Problem - LEVEL 2
 **Problem:** A $400$ V (line-to-line), $50$ Hz, three-phase supply is connected to a balanced star-connected load. The phase current is $10$ A, lagging the phase voltage by $30^\circ$. Calculate the phase voltage, total active power, and total apparent power.

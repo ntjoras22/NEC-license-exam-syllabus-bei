@@ -1,8 +1,9 @@
-<Section 8.2: Context Free Language (AEiE0802)>
-## 1. Introduction
+## Section Context Free Language (AEiE0802)
+
+## 📖 1. Introduction
 Context-Free Languages (CFL) are a step above Regular Languages in the Chomsky Hierarchy. They can represent nested structures, such as balanced parentheses and block structures in programming languages. This makes them crucial for compiler design, specifically the syntax analysis (parsing) phase. 
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 A Context-Free Grammar (CFG) is a formal grammar which is used to generate all possible strings in a given formal language. 
 
 > [!NOTE] Definition
@@ -64,7 +65,7 @@ A language is context-free if and only if there is a Push Down Automaton that re
 - For every CFG, we can construct a PDA that accepts the same language.
 - For every PDA, we can construct a CFG that generates the same language.
 
-## 8. Properties of Context Free Languages
+## 📋 8. Properties of Context Free Languages
 CFLs are closed under:
 - Union
 - Concatenation
@@ -78,7 +79,7 @@ CFLs are **NOT** closed under:
 
 However, the intersection of a CFL and a Regular Language is always a CFL.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Do not assume CFLs are closed under intersection or complementation. This is a very common trick question in multiple-choice exams.
@@ -88,7 +89,7 @@ However, the intersection of a CFL and a Regular Language is always a CFL.
 > - Every regular language is a context-free language, but not vice versa.
 > - A stack is the fundamental difference between an FA and a PDA.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - CFG: $G = (V, \Sigma, R, S)$
@@ -96,7 +97,7 @@ However, the intersection of a CFL and a Regular Language is always a CFL.
 > - PDA: $M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$
 > - Closure Properties: CFLs closed under $\cup, \cdot, *$. Not closed under $\cap, '$.
 
-## Practice Problems
+## ✏️ Practice Problems
 1. **Problem**: Construct a PDA for the language $L = \{a^n b^n \mid n \ge 1\}$.
    *Sketch*: Push 'a' onto the stack. When 'b' is read, pop 'a'. Accept if stack is empty after input is consumed.
 2. **Problem**: Convert the grammar $S \rightarrow aSb \mid \epsilon$ to Chomsky Normal Form.

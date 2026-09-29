@@ -1,6 +1,6 @@
 # Section 4.5: Real-Time Operating and Control System (ACtE0405)
 
-## 1. Introduction
+## 📖 1. Introduction
 The Real-Time Operating and Control System section covers the fundamental concepts of operating systems (OS), specifically tailored for embedded systems, real-time operating systems (RTOS), and the basics of control systems. These concepts are crucial for understanding how embedded devices manage hardware resources, schedule tasks to meet strict timing deadlines, and interface with the physical world through closed-loop and open-loop control mechanisms. 
 
 ---
@@ -68,7 +68,7 @@ Context switching is the process of storing the state (context) of the currently
 
 ---
 
-## 4. Multiprocessing vs Multitasking
+## 💡 4. Multiprocessing vs Multitasking
 
 | Feature | Multiprocessing | Multitasking |
 |---------|-----------------|--------------|
@@ -101,7 +101,8 @@ Real-time systems require specific algorithms to meet hard deadlines.
    - Static priority scheduling.
    - Priority is inversely proportional to the task's period: shorter period = higher priority.
    - Utilization bound for schedulability of $n$ tasks: 
-     $$ U = \sum_{i=1}^n \frac{C_i}{T_i} \le n(2^{1/n} - 1) $$
+
+$$ U = \sum_{i=1}^n \frac{C_i}{T_i} \le n(2^{1/n} - 1) $$
      where $C_i$ is computation time and $T_i$ is the period.
 
 2. **Earliest Deadline First (EDF)**:
@@ -171,7 +172,8 @@ A control system manages, commands, directs, or regulates the behavior of other 
 
 ### Block Diagram & Transfer Function
 - **Transfer Function**: The ratio of the Laplace transform of the output to the Laplace transform of the input, assuming zero initial conditions.
-  $$ G(s) = \frac{Y(s)}{R(s)} $$
+
+$$ G(s) = \frac{Y(s)}{R(s)} $$
 
 **Closed-Loop Transfer Function**:
 ```text
@@ -198,7 +200,7 @@ $$ u(t) = K_p e(t) + K_i \int_{0}^{t} e(\tau) d\tau + K_d \frac{de(t)}{dt} $$
 
 ---
 
-## 10. Worked Examples
+## 🔍 10. Worked Examples
 
 **Example 1: Rate Monotonic Scheduling**
 Given two tasks $T_1$ (computation $C_1=2$, period $T_1=5$) and $T_2$ (computation $C_2=4$, period $T_2=15$). Are they schedulable using RMS?
@@ -218,7 +220,7 @@ $$ C(s) = \frac{U(s)}{E(s)} = K_p + \frac{K_i}{s} + K_d s = \frac{K_d s^2 + K_p 
 
 ---
 
-## 11. Common Mistakes / Exam Tips
+## 💡 11. Common Mistakes / Exam Tips
 > [!WARNING]
 > **Priority Inversion vs Deadlock**: Do not confuse these. Priority inversion happens when a high-priority task waits on a low-priority task. Deadlock happens when two or more tasks are stuck waiting for each other indefinitely.
 > 
@@ -228,7 +230,7 @@ $$ C(s) = \frac{U(s)}{E(s)} = K_p + \frac{K_i}{s} + K_d s = \frac{K_d s^2 + K_p 
 
 ---
 
-## 12. Practice Problems
+## ✏️ 12. Practice Problems
 
 **Q1.** Which scheduling algorithm suffers from the convoy effect?
 A. Round Robin

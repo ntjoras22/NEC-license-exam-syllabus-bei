@@ -1,9 +1,9 @@
-</Agent System Instructions>
-<Section 8.4: Computer Graphics (AEiE0804)>
-## 1. Introduction
+## Section 8.4 — Computer Graphics (AEiE0804)
+
+## 📖 1. Introduction
 Computer graphics deals with the creation, manipulation, and storage of different types of images and objects using computers. In the context of the NEC license exam, this section covers the fundamental concepts of computer graphics, including both hardware components and software standards used to produce graphical output.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 Computer graphics systems comprise hardware devices to generate, store, and display images, and software to provide the necessary commands and algorithms.
 
 > [!NOTE] Definition
@@ -107,7 +107,7 @@ A cross-language, cross-platform API for rendering 2D and 3D vector graphics. It
 #### Direct3D
 Part of Microsoft's DirectX API. It is heavily used in Windows-based applications and Xbox games.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Confusing Raster-Scan and Random-Scan displays. Remember that Raster-Scan uses a frame buffer and draws pixel by pixel, while Random-Scan uses a display list and draws continuous lines.
@@ -118,7 +118,7 @@ Part of Microsoft's DirectX API. It is heavily used in Windows-based application
 > [!TIP]
 > Know the differences between graphics standards. GKS is older and primarily 2D. OpenGL is widely used for both 2D and 3D modern graphics.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > **Frame Buffer Size Calculation**:
@@ -131,7 +131,7 @@ Calculate the frame buffer size required for a resolution of $1024 \times 768$ w
 Size = $\frac{1024 \times 768 \times 24}{8}$ bytes
 Size = $2,359,296$ bytes $\approx 2.25$ MB.
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. **Calculate the memory required for a $1920 \times 1080$ display with 32-bit true color.**
    *Answer Sketch:* $1920 \times 1080 \times 32 / 8 = 8,294,400$ bytes $\approx 7.91$ MB.

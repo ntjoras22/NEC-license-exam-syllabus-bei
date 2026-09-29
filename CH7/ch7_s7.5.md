@@ -1,8 +1,9 @@
-<Section 7.5: Operating System and Process Management (AEiE0705)>
-## 1. Introduction
+## Section Operating System and Process Management (AEiE0705)
+
+## 📖 1. Introduction
 An Operating System (OS) is the fundamental software that manages computer hardware and software resources and provides common services for computer programs. It acts as an intermediary between the user of a computer and the computer hardware. For the NEC exam, a deep understanding of process management, scheduling, threads, and concurrency mechanisms is vital.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 The OS is essentially a resource manager. It allocates CPU time, memory, and I/O devices to various applications. A **process** is a program in execution, representing the fundamental unit of work in a system.
 
 > [!NOTE] Definition
@@ -10,14 +11,14 @@ The OS is essentially a resource manager. It allocates CPU time, memory, and I/O
 > **Process**: A program in execution; an instance of a computer program that is being executed.
 > **Thread**: A basic unit of CPU utilization, comprising a thread ID, a program counter, a register set, and a stack.
 
-## 3. Evolution and Types of Operating Systems
+## 📚 3. Evolution and Types of Operating Systems
 - **Batch Systems**: Jobs with similar needs are batched together and executed sequentially. No direct user interaction.
 - **Multiprogramming Systems**: Keeps multiple jobs in memory to maximize CPU utilization by overlapping CPU and I/O operations.
 - **Time-Sharing (Multitasking) Systems**: Logical extension of multiprogramming. CPU executes multiple jobs by switching among them frequently, providing interactive computing.
 - **Real-Time Systems**: Used when rigid time requirements have been placed on the operation of a processor or the flow of data (Hard real-time vs. Soft real-time).
 - **Distributed Systems**: Distribute computation among several physical processors loosely coupled.
 
-## 4. Operating System Components, Structure, and Services
+## 📦 4. Operating System Components, Structure, and Services
 **Components**: Process Management, Memory Management, File Management, I/O System Management, Secondary-Storage Management, Networking, Protection System, Command-Interpreter System.
 **Structure**:
 - Monolithic (e.g., MS-DOS, early Linux): All OS components run in a single memory space.
@@ -60,7 +61,7 @@ A thread is a lightweight process.
 | Context Switching | High overhead | Low overhead |
 | Independence | Independent entities | Interdependent |
 
-## 8. Types of Scheduling
+## 📚 8. Types of Scheduling
 The CPU scheduler selects a process from the ready queue to execute.
 - **Preemptive Scheduling**: CPU can be taken away from a running process (e.g., on time quantum expiration).
 - **Non-preemptive Scheduling**: A process keeps the CPU until it releases it by terminating or switching to the waiting state.
@@ -90,7 +91,7 @@ A segment of code in which the process may be changing common variables, updatin
 - **Mutex Locks**: OS-provided tool with `acquire()` and `release()` functions.
 - **Semaphores**: An integer variable $S$ accessed via two indivisible (atomic) operations: `wait()` and `signal()` (or P and V).
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Threads within the same process share the heap and data sections but NOT the stack or registers. A common trap is thinking threads share everything.
@@ -98,14 +99,14 @@ A segment of code in which the process may be changing common variables, updatin
 > [!TIP]
 > For CPU scheduling calculations (turnaround time, waiting time), always draw a Gantt chart first. It makes visualizing the execution order much easier.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - **Turnaround Time ($TAT$)** = Completion Time - Arrival Time
 > - **Waiting Time ($WT$)** = Turnaround Time - Burst Time
 > - **Little's Formula**: $L = \lambda W$ (Average queue length = Average arrival rate $\times$ Average waiting time in queue).
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. Explain the difference between preemptive and non-preemptive scheduling. Give one example of each.
    *Answer sketch: Preemptive allows OS to interrupt a running process (Round Robin). Non-preemptive means a process runs until it finishes or blocks (FCFS).*

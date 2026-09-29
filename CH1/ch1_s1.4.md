@@ -3,7 +3,7 @@
 > [!NOTE]
 > **Syllabus Coverage:** Semiconductor diode and its characteristics, BJT Configuration and biasing, small and large signal model, working principle and application of MOSFET and CMOS.
 
-## Introduction
+## 📖 Introduction
 Semiconductor devices form the fundamental building blocks of modern electronics. From a simple diode rectifying AC power to billions of CMOS transistors inside a microprocessor, understanding how semiconductors behave under various electrical conditions is critical for any electrical or electronics engineer. This section covers the fundamental physics of semiconductors, diodes, BJTs, MOSFETs, and CMOS technology.
 
 ---
@@ -31,7 +31,8 @@ An intrinsic semiconductor is a perfectly pure semiconductor crystal (e.g., pure
 *   **Covalent Bonding:** Each atom shares 4 valence electrons with its neighbors.
 *   **Electron-Hole Pairs:** At room temperature (300K), thermal energy breaks some covalent bonds, creating free electrons and leaving behind vacancies called **holes** (which act as positive charge carriers).
 *   **Carrier Concentration:** In intrinsic semiconductors, the number of electrons ($n$) equals the number of holes ($p$). 
-    $$n = p = n_i$$
+
+$$n = p = n_i$$
     where $n_i$ is the intrinsic carrier concentration.
 
 ### 3. Extrinsic Semiconductor
@@ -87,7 +88,8 @@ When the positive terminal of a battery is connected to the Anode (P) and the ne
 *   The depletion region narrows.
 *   Once $V_{external} > V_{barrier}$, large current flows.
 *   **Mathematical Formulation (Shockley Diode Equation):**
-    $$I = I_s \left( e^{\frac{V}{n V_T}} - 1 \right)$$
+
+$$I = I_s \left( e^{\frac{V}{n V_T}} - 1 \right)$$
     | Symbol | Meaning | SI Unit |
     | :--- | :--- | :--- |
     | $I$ | Diode current | A |

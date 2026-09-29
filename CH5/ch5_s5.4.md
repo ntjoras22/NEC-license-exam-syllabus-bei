@@ -1,8 +1,9 @@
-<Section 5.4: Transport Layer (ACtE0504)>
-## 1. Introduction
+## Section Transport Layer (ACtE0504)
+
+## 📖 1. Introduction
 The Transport Layer, layer 4 in the OSI model and layer 3 in the TCP/IP suite, is responsible for the logical communication between application processes running on different hosts. For the NEC exam, understanding the transport layer is crucial because it bridges the network layer (which provides host-to-host communication) and the application layer.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 The primary role of the transport layer is to provide **process-to-process delivery**. While the network layer (IP) gets the data to the correct computer (host), the transport layer ensures it reaches the correct application program (process) on that computer using port numbers.
 
 > [!NOTE] Definition
@@ -98,7 +99,7 @@ QoS is an internetworking issue that discusses how to define and guarantee a cer
 *   **Integrated Services (IntServ)**: Flow-based QoS. Resources are explicitly reserved for each flow (e.g., using RSVP - Resource Reservation Protocol). Hard to scale for the core internet.
 *   **Differentiated Services (DiffServ)**: Class-based QoS. Packets are marked in the IP header (DSCP field). Routers apply per-hop behaviors (PHBs) based on the class. Highly scalable.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Do not confuse Flow Control (receiver-side limitation) with Congestion Control (network-side limitation). The actual window size used by TCP is $W = \min(rwnd, cwnd)$.
@@ -107,7 +108,7 @@ QoS is an internetworking issue that discusses how to define and guarantee a cer
 > Memorize the UDP header size (8 bytes) and the minimum TCP header size (20 bytes). They are frequently asked in MCQs.
 > Remember that Leaky Bucket regulates the *average* rate and eliminates bursts, whereas Token Bucket regulates the *average* rate but *allows* bursts.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - TCP Window Size: $W = \min(\text{rwnd}, \text{cwnd})$
@@ -115,7 +116,7 @@ QoS is an internetworking issue that discusses how to define and guarantee a cer
 > - Token Bucket Maximum Burst Size: $S = b + r \cdot t$ (where $b$ = bucket capacity, $r$ = token rate, $t$ = burst duration)
 > - Subnet mask / Port mapping: Standard well-known ports (e.g., 80, 443, 22).
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1.  **A TCP connection is transferring a file of 5000 bytes. The first byte is numbered 10001. What are the sequence numbers for each segment if data is sent in five segments, each carrying 1000 bytes?**
     *Answer:*

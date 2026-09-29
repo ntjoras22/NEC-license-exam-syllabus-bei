@@ -1,5 +1,6 @@
-<Section 7.1: Data Structure and Algorithm (AEiE0701)>
-## 1. Introduction
+## Section Data Structure and Algorithm (AEiE0701)
+
+## 📖 1. Introduction
 Data structures and algorithms form the foundation of computer science and software engineering. Understanding how data is organized, stored, and manipulated is crucial for writing efficient programs. For the NEC license exam, this section tests your fundamental knowledge of linear and non-linear data structures, abstract data types (ADTs), and their practical implementations and applications.
 
 ## 2. Basic Concepts: Data Types, Data Structures, and ADTs
@@ -154,7 +155,7 @@ A tree is a non-linear hierarchical data structure consisting of nodes connected
    - **Preorder (Root, Left, Right)**: Visits root, left subtree, right subtree.
    - **Postorder (Left, Right, Root)**: Visits left subtree, right subtree, root.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > A common mistake is forgetting to handle edge cases like empty stacks/queues (underflow) or full static structures (overflow) in array-based implementations.
@@ -165,7 +166,7 @@ A tree is a non-linear hierarchical data structure consisting of nodes connected
 > - Inorder = Root in middle (gives sorted order for Binary Search Trees)
 > - Postorder = Root last
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - Stack Time Complexity: $O(1)$ for Push/Pop.
@@ -173,7 +174,7 @@ A tree is a non-linear hierarchical data structure consisting of nodes connected
 > - Maximum nodes in a binary tree of height $h$ is $2^{h+1} - 1$.
 > - Minimum height of a binary tree with $n$ nodes is $\lfloor \log_2 n \rfloor$.
 
-## Practice Problems
+## ✏️ Practice Problems
 1. Convert the infix expression `A + B * C - (D / E ^ F) * G` to postfix notation.
    - *Sketch:* Apply precedence rules. Stack operators and output operands.
 2. Write a C function to delete a node from the nth position in a singly linked list.

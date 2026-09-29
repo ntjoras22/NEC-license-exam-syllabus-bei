@@ -1,275 +1,107 @@
 """
-Build a PDF book from Chapter 1 markdown files.
-Combines all sections into one styled HTML then converts to PDF.
+Build PDF/HTML textbooks from NEC License Exam markdown files.
+Supports all 10 chapters with proper LaTeX rendering via latex2mathml.
 """
 import markdown
 import os
 import re
+import sys
+import argparse
 
-# ── Configuration ──────────────────────────────────────────────
-BASE_DIR = r"C:\Users\sunco\Desktop\lincense_exam"
-OUTPUT_HTML = os.path.join(BASE_DIR, "NEC_Chapter1_Complete_Textbook.html")
-OUTPUT_PDF = os.path.join(BASE_DIR, "NEC_Chapter1_Complete_Textbook.pdf")
+try:
+    import latex2mathml.converter
+    HAS_LATEX2MATHML = True
+except ImportError:
+    HAS_LATEX2MATHML = False
+    print("Warning: latex2mathml not installed. LaTeX will not render properly.")
+    print("Install with: pip install latex2mathml")
 
-# Order of files to combine
-FILES = [
-    "ch1_master_roadmap.md",
-    "ch1_s1.1_part1.md",
-    "ch1_s1.1_part2.md",
-    "ch1_s1.2.md",
-    "ch1_s1.3.md",
-    "ch1_s1.4.md",
-    "ch1_s1.5.md",
-    "ch1_s1.6.md",
-]
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CSS_FILE = os.path.join(BASE_DIR, "styles.css")
 
-# ── CSS Styling ────────────────────────────────────────────────
-CSS = """
-@page {
-    size: A4;
-    margin: 2cm 2cm 2.5cm 2cm;
-    @bottom-center {
-        content: "NEC License Exam — Chapter 1 | Page " counter(page);
-        font-size: 9pt;
-        color: #666;
-    }
-    @top-center {
-        content: "Concept of Basic Electrical and Electronics Engineering";
-        font-size: 8pt;
-        color: #999;
-        border-bottom: 0.5pt solid #ccc;
-        padding-bottom: 3mm;
-    }
-}
-
-@page :first {
-    @top-center { content: none; }
-    @bottom-center { content: none; }
+CHAPTERS = {
+    1:  {"dir": "CH1",  "title": "Concept of Basic Electrical and Electronics Engineering", "code": "AExE01",
+         "files": ["ch1_master_roadmap.md", "ch1_s1.1_part1.md", "ch1_s1.1_part2.md",
+                   "ch1_s1.2.md", "ch1_s1.3.md", "ch1_s1.4.md", "ch1_s1.5.md", "ch1_s1.6.md"]},
+    2:  {"dir": "CH2",  "title": "Digital Logic and Microprocessors", "code": "AExE02",
+         "files": ["ch2_s2.1.md", "ch2_s2.2.md", "ch2_s2.3.md", "ch2_s2.4.md", "ch2_s2.5.md", "ch2_s2.6.md"]},
+    3:  {"dir": "CH3",  "title": "Computer Programming (C & C++)", "code": "ACtE03",
+         "files": ["ch3_s3.1.md", "ch3_s3.2.md", "ch3_s3.3.md", "ch3_s3.4.md", "ch3_s3.5.md", "ch3_s3.6.md"]},
+    4:  {"dir": "CH4",  "title": "Computer Organization and Architecture", "code": "ACtE04",
+         "files": ["ch4_s4.1.md", "ch4_s4.2.md", "ch4_s4.3.md", "ch4_s4.4.md", "ch4_s4.5.md", "ch4_s4.6.md"]},
+    5:  {"dir": "CH5",  "title": "Computer Networks", "code": "ACtE05",
+         "files": ["ch5_s5.1.md", "ch5_s5.2.md", "ch5_s5.3.md", "ch5_s5.4.md", "ch5_s5.5.md", "ch5_s5.6.md"]},
+    6:  {"dir": "CH6",  "title": "Electromagnetics, Signals, and Communication", "code": "AEiE06",
+         "files": ["ch6_s6.1.md", "ch6_s6.2.md", "ch6_s6.3.md", "ch6_s6.4.md", "ch6_s6.5.md", "ch6_s6.6.md"]},
+    7:  {"dir": "CH7",  "title": "Data Structures, DBMS, and Operating Systems", "code": "AEiE07",
+         "files": ["ch7_s7.1.md", "ch7_s7.2.md", "ch7_s7.3.md", "ch7_s7.4.md", "ch7_s7.5.md", "ch7_s7.6.md"]},
+    8:  {"dir": "CH8",  "title": "Theory of Computation and Computer Graphics", "code": "AEiE08",
+         "files": ["ch8_s8.1.md", "ch8_s8.2.md", "ch8_s8.3.md", "ch8_s8.4.md", "ch8_s8.5.md", "ch8_s8.6.md"]},
+    9:  {"dir": "CH9",  "title": "Telecommunication and Wireless Communication", "code": "AEiE09",
+         "files": ["ch9_s9.1.md", "ch9_s9.2.md", "ch9_s9.3.md", "ch9_s9.4.md", "ch9_s9.5.md", "ch9_s9.6.md"]},
+    10: {"dir": "CH10", "title": "Engineering Drawings, Project Management, and Ethics", "code": "AALL10",
+         "files": ["ch10_s10.1.md", "ch10_s10.2.md", "ch10_s10.3.md", "ch10_s10.4.md", "ch10_s10.5.md", "ch10_s10.6.md"]},
 }
 
-body {
-    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11pt;
-    line-height: 1.6;
-    color: #1a1a1a;
-    max-width: 100%;
+SECTION_NAMES = {
+    1: ["Master Roadmap", "Basic Concept (Part 1)", "Basic Concept (Part 2)",
+        "Network Theorems", "AC Fundamentals", "Semiconductor Devices",
+        "Signal Generators", "Amplifiers"],
+    2: ["Number Systems & Boolean Algebra", "Combinational Circuits", "Sequential Logic",
+        "Microprocessor 8085", "Microprocessor Systems", "Interrupt Operations"],
+    3: ["C Basics", "C Advanced", "C++ Constructs", "OOP Principles",
+        "Virtual Functions & Files", "Templates & Exceptions"],
+    4: ["CPU & Control Unit", "Computer Arithmetic & Memory", "I/O Organization",
+        "Embedded Systems", "RTOS", "HDL & IC Technology"],
+    5: ["Network Models", "Data Link Layer", "Network Layer",
+        "Transport Layer", "Application Layer", "Network Security"],
+    6: ["Static Fields & Maxwell", "Wave Propagation", "Analog Communication",
+        "Digital Communication", "Signals & Systems", "DSP"],
+    7: ["Data Structures", "Algorithms", "Database Modeling",
+        "Transactions", "Operating Systems", "Memory Management"],
+    8: ["Finite Automata", "Context-Free Languages", "Turing Machines",
+        "CG Basics", "2D Transformations", "3D & Projections"],
+    9: ["Cellular Telecom", "Diversity & MIMO", "Switching Systems",
+        "Data Switching", "IP Switching & MPLS", "VoIP & NGN"],
+    10: ["Engineering Drawing", "Engineering Economics", "Project Planning",
+         "Project Management", "Professional Ethics", "Regulatory Bodies"],
 }
 
-/* ── Title Page ─────────────────────────────────────── */
-.title-page {
-    page-break-after: always;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 90vh;
-    text-align: center;
-}
-.title-page h1 {
-    font-size: 28pt;
-    color: #1a237e;
-    margin-bottom: 10px;
-    border: none;
-}
-.title-page h2 {
-    font-size: 18pt;
-    color: #333;
-    font-weight: normal;
-    margin-bottom: 30px;
-    border: none;
-}
-.title-page .subtitle {
-    font-size: 14pt;
-    color: #555;
-    margin-bottom: 40px;
-}
-.title-page .exam-info {
-    font-size: 11pt;
-    color: #666;
-    border: 2px solid #1a237e;
-    padding: 20px 40px;
-    border-radius: 8px;
-    margin-top: 30px;
-}
+# LaTeX Conversion
 
-/* ── Section Breaks ─────────────────────────────────── */
-.section-break {
-    page-break-before: always;
-    border-top: 3px solid #1a237e;
-    padding-top: 10px;
-    margin-top: 0;
-}
+def convert_latex_to_mathml(text):
+    def replace_display_math(match):
+        latex = match.group(1).strip()
+        try:
+            mathml = latex2mathml.converter.convert(latex)
+            return '<div class="math-block">{}</div>'.format(mathml)
+        except Exception:
+            return '<div class="math-block"><span class="math-inline">{}</span></div>'.format(latex)
 
-/* ── Headings ───────────────────────────────────────── */
-h1 {
-    font-size: 22pt;
-    color: #1a237e;
-    border-bottom: 3px solid #1a237e;
-    padding-bottom: 8px;
-    margin-top: 30px;
-    page-break-after: avoid;
-}
-h2 {
-    font-size: 16pt;
-    color: #283593;
-    border-bottom: 1.5px solid #c5cae9;
-    padding-bottom: 5px;
-    margin-top: 25px;
-    page-break-after: avoid;
-}
-h3 {
-    font-size: 13pt;
-    color: #303f9f;
-    margin-top: 20px;
-    page-break-after: avoid;
-}
-h4 {
-    font-size: 11.5pt;
-    color: #3949ab;
-    margin-top: 15px;
-    page-break-after: avoid;
-}
+    def replace_inline_math(match):
+        latex = match.group(1).strip()
+        try:
+            return latex2mathml.converter.convert(latex)
+        except Exception:
+            return '<span class="math-inline">{}</span>'.format(latex)
 
-/* ── Tables ─────────────────────────────────────────── */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 15px 0;
-    font-size: 10pt;
-    page-break-inside: avoid;
-}
-th {
-    background-color: #1a237e;
-    color: white;
-    padding: 8px 12px;
-    text-align: left;
-    font-weight: 600;
-}
-td {
-    padding: 6px 12px;
-    border: 1px solid #ddd;
-}
-tr:nth-child(even) {
-    background-color: #f5f5f5;
-}
-tr:hover {
-    background-color: #e8eaf6;
-}
+    text = re.sub(r'\$\$(.*?)\$\$', replace_display_math, text, flags=re.DOTALL)
+    text = re.sub(r'(?<!\$)\$(?!\$)(.*?)(?<!\$)\$(?!\$)', replace_inline_math, text)
+    return text
 
-/* ── Code / Diagrams ────────────────────────────────── */
-pre {
-    background-color: #f5f5f5;
-    border: 1px solid #e0e0e0;
-    border-left: 4px solid #1a237e;
-    padding: 12px 15px;
-    font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 9.5pt;
-    line-height: 1.4;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    page-break-inside: avoid;
-    border-radius: 4px;
-}
-code {
-    background-color: #f0f0f0;
-    padding: 1px 4px;
-    border-radius: 3px;
-    font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 10pt;
-}
-pre code {
-    background: none;
-    padding: 0;
-}
+def convert_latex_to_html_fallback(text):
+    text = re.sub(r'\$\$(.*?)\$\$', r'<div class="math-block"><span class="math-inline">\1</span></div>', text, flags=re.DOTALL)
+    text = re.sub(r'(?<!\$)\$(?!\$)(.*?)(?<!\$)\$(?!\$)', r'<span class="math-inline">\1</span>', text)
+    return text
 
-/* ── Blockquotes (Alerts) ──────────────────────────── */
-blockquote {
-    border-left: 4px solid #1a237e;
-    background-color: #e8eaf6;
-    padding: 12px 15px;
-    margin: 15px 0;
-    font-style: normal;
-    page-break-inside: avoid;
-    border-radius: 0 4px 4px 0;
-}
+def convert_latex(text):
+    if HAS_LATEX2MATHML:
+        return convert_latex_to_mathml(text)
+    return convert_latex_to_html_fallback(text)
 
-/* ── Alerts Styling ────────────────────────────────── */
-.alert-note {
-    border-left: 4px solid #2196f3;
-    background-color: #e3f2fd;
-}
-.alert-tip {
-    border-left: 4px solid #4caf50;
-    background-color: #e8f5e9;
-}
-.alert-important {
-    border-left: 4px solid #9c27b0;
-    background-color: #f3e5f5;
-}
-.alert-warning {
-    border-left: 4px solid #ff9800;
-    background-color: #fff3e0;
-}
-.alert-caution {
-    border-left: 4px solid #f44336;
-    background-color: #ffebee;
-}
-
-/* ── Math-like formatting ──────────────────────────── */
-.math-block {
-    text-align: center;
-    margin: 10px 0;
-    font-style: italic;
-}
-
-/* ── Lists ──────────────────────────────────────────── */
-ul, ol {
-    margin: 8px 0;
-    padding-left: 25px;
-}
-li {
-    margin: 3px 0;
-}
-
-/* ── Horizontal Rule ────────────────────────────────── */
-hr {
-    border: none;
-    border-top: 2px solid #c5cae9;
-    margin: 25px 0;
-}
-
-/* ── Emphasis ───────────────────────────────────────── */
-strong {
-    color: #1a237e;
-}
-
-/* ── Page Break Utility ─────────────────────────────── */
-.page-break {
-    page-break-after: always;
-}
-
-/* ── Exam Focus Boxes ──────────────────────────────── */
-.exam-trap {
-    background-color: #fff3e0;
-    border: 1px solid #ff9800;
-    border-left: 4px solid #e65100;
-    padding: 10px 15px;
-    margin: 10px 0;
-    border-radius: 4px;
-}
-.engineering-intuition {
-    background-color: #e8f5e9;
-    border: 1px solid #4caf50;
-    border-left: 4px solid #2e7d32;
-    padding: 10px 15px;
-    margin: 10px 0;
-    border-radius: 4px;
-}
-"""
+# HTML Processing
 
 def process_github_alerts(html):
-    """Convert GitHub-style alerts to styled divs."""
     alert_types = {
         '[!NOTE]': 'alert-note',
         '[!TIP]': 'alert-tip',
@@ -278,53 +110,32 @@ def process_github_alerts(html):
         '[!CAUTION]': 'alert-caution',
     }
     for marker, css_class in alert_types.items():
-        pattern = f'<blockquote>\\s*<p>{re.escape(marker)}'
-        replacement = f'<blockquote class="{css_class}"><p>'
+        pattern = r'<blockquote>\s*<p>' + re.escape(marker)
+        replacement = '<blockquote class="{}"><p>'.format(css_class)
         html = re.sub(pattern, replacement, html)
     return html
 
 def add_section_breaks(html):
-    """Add page breaks before major section headings."""
-    # Add page break before each major section (h1 tags that indicate new sections)
-    section_patterns = [
-        r'(<h1[^>]*>(?:Section 1\.[2-6]|CHAPTER 1 —|1\.1\.[2-9]|1\.[2-6]))',
-        r'(<h1[^>]*>(?:SECTION|Section) 1\.[2-6])',
-    ]
-    # Simple approach: add page break before every h1 except the very first
     parts = html.split('<h1')
     if len(parts) > 1:
         result = parts[0]
         for i, part in enumerate(parts[1:], 1):
-            if i > 1:  # Skip first h1 (title page handles it)
+            if i > 1:
                 result += '<div class="section-break"></div><h1' + part
             else:
                 result += '<h1' + part
         html = result
     return html
 
-def convert_latex_to_html(text):
-    """Simple LaTeX math conversion for display in HTML."""
-    # Convert display math $$...$$ to styled divs
-    text = re.sub(
-        r'\$\$(.*?)\$\$',
-        r'<div style="text-align:center;margin:10px 0;font-family:serif;font-style:italic;">\1</div>',
-        text,
-        flags=re.DOTALL
-    )
-    # Convert inline math $...$ (but not $$)
-    text = re.sub(
-        r'(?<!\$)\$(?!\$)(.*?)(?<!\$)\$(?!\$)',
-        r'<span style="font-family:serif;font-style:italic;">\1</span>',
-        text
-    )
-    return text
+# Page Builders
 
-def build_title_page():
-    """Generate the title page HTML."""
+def build_title_page(chapter_num, chapter_info):
+    sections = SECTION_NAMES.get(chapter_num, [])
+    section_li = "\n".join("<li>{}</li>".format(s) for s in sections)
     return """
     <div class="title-page">
-        <h1>CHAPTER 1</h1>
-        <h2>Concept of Basic Electrical and Electronics Engineering</h2>
+        <h1>CHAPTER {}</h1>
+        <h2>{}</h2>
         <div class="subtitle">
             <p><strong>Complete Textbook for NEC License Examination Preparation</strong></p>
             <p>Electronics, Communication and Information Engineering (AEiE)</p>
@@ -332,178 +143,209 @@ def build_title_page():
         <div class="exam-info">
             <p><strong>Nepal Engineering Council</strong></p>
             <p>Registration Examination</p>
-            <p>Code: AExE01</p>
+            <p>Code: {}</p>
             <br/>
-            <p><em>Sections: 1.1 Basic Concept &bull; 1.2 Network Theorems &bull; 1.3 AC Fundamentals</em></p>
-            <p><em>1.4 Semiconductor Devices &bull; 1.5 Signal Generators &bull; 1.6 Amplifiers</em></p>
+            <ul style="list-style:none;padding:0;text-align:left;display:inline-block;">
+                {}
+            </ul>
         </div>
     </div>
-    """
+    """.format(chapter_num, chapter_info["title"], chapter_info["code"], section_li)
 
-def build_toc():
-    """Generate table of contents."""
+def build_toc(chapter_num, chapter_info):
+    sections = SECTION_NAMES.get(chapter_num, [])
+    items = "\n".join("<li><strong>{}.</strong> {}</li>".format(i, s) for i, s in enumerate(sections, 1))
     return """
-    <div style="page-break-after:always;">
-    <h1 style="text-align:center;">TABLE OF CONTENTS</h1>
+    <div class="toc-page">
+    <h1>TABLE OF CONTENTS</h1>
     <hr/>
-    <h2>Master Roadmap</h2>
-    <ul>
-        <li>Complete Hierarchical Structure</li>
-        <li>Dependency Relationships</li>
-        <li>Recommended Learning Order</li>
-        <li>Priority Classification</li>
-        <li>Topic Characterization</li>
-    </ul>
-    <h2>Section 1.1 — Basic Concept (AExE0101)</h2>
-    <ul>
-        <li>Part 1: Electric Charge, Voltage, Current, Resistance, Ohm's Law, Power, Energy</li>
-        <li>Part 2: Conductors &amp; Insulators, Series &amp; Parallel Circuits, Star-Delta Conversion, Kirchhoff's Laws, Circuit Classifications</li>
-        <li>Practice Questions &amp; MCQs</li>
-    </ul>
-    <h2>Section 1.2 — Network Theorems (AExE0102)</h2>
-    <ul>
-        <li>Superposition Theorem</li>
-        <li>Thevenin's Theorem</li>
-        <li>Norton's Theorem</li>
-        <li>Maximum Power Transfer Theorem</li>
-        <li>R-L, R-C, R-L-C Circuits</li>
-        <li>Series &amp; Parallel Resonance</li>
-        <li>Active, Reactive &amp; Apparent Power</li>
-        <li>Practice Questions &amp; MCQs</li>
-    </ul>
-    <h2>Section 1.3 — Alternating Current Fundamentals (AExE0103)</h2>
-    <ul>
-        <li>AC Generation, Equations &amp; Waveforms</li>
-        <li>Peak, Average &amp; RMS Values</li>
-        <li>Three-Phase System</li>
-        <li>Practice Questions &amp; MCQs</li>
-    </ul>
-    <h2>Section 1.4 — Semiconductor Devices (AExE0104)</h2>
-    <ul>
-        <li>Semiconductor Fundamentals</li>
-        <li>Diode Characteristics</li>
-        <li>BJT Configuration &amp; Biasing</li>
-        <li>Small &amp; Large Signal Models</li>
-        <li>MOSFET Working Principle</li>
-        <li>CMOS Technology</li>
-        <li>Practice Questions &amp; MCQs</li>
-    </ul>
-    <h2>Section 1.5 — Signal Generator (AExE0105)</h2>
-    <ul>
-        <li>Oscillator Principles &amp; Barkhausen Criterion</li>
-        <li>RC Oscillators (Wien Bridge, Phase-Shift)</li>
-        <li>LC Oscillators (Hartley, Colpitts)</li>
-        <li>Crystal Oscillators</li>
-        <li>Waveform Generators</li>
-        <li>Practice Questions &amp; MCQs</li>
-    </ul>
-    <h2>Section 1.6 — Amplifiers (AExE0106)</h2>
-    <ul>
-        <li>Classification of Output Stages</li>
-        <li>Class A, B, AB Amplifiers</li>
-        <li>Power BJTs &amp; Push-Pull Stages</li>
-        <li>Tuned Amplifiers</li>
-        <li>Operational Amplifiers (Op-Amps)</li>
-        <li>Practice Questions &amp; MCQs</li>
+    <h2>Chapter {}: {}</h2>
+    <ul style="list-style:none;padding-left:0;">
+        {}
     </ul>
     </div>
+    """.format(chapter_num, chapter_info["title"], items)
+
+def build_dark_mode_script():
+    return """
+    <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle dark mode">&#9789;</button>
+    <script>
+    (function() {
+        var toggle = document.getElementById('darkModeToggle');
+        var body = document.body;
+        var saved = localStorage.getItem('darkMode');
+        if (saved === 'true') {
+            body.classList.add('dark-mode');
+            toggle.innerHTML = '&#9788;';
+        }
+        toggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            var isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            toggle.innerHTML = isDark ? '&#9788;' : '&#9789;';
+        });
+    })();
+    </script>
     """
 
-def main():
-    print("=" * 60)
-    print("NEC Chapter 1 Textbook — PDF Builder")
-    print("=" * 60)
+# Main Build
 
-    # Read and combine all markdown files
-    combined_md = ""
-    for fname in FILES:
-        fpath = os.path.join(BASE_DIR, fname)
-        print(f"Reading: {fname} ({os.path.getsize(fpath)/1024:.1f} KB)")
+def read_markdown_files(chapter_dir, files):
+    combined = ""
+    for fname in files:
+        fpath = os.path.join(chapter_dir, fname)
+        if not os.path.exists(fpath):
+            print("  Warning: {} not found, skipping.".format(fpath))
+            continue
+        size_kb = os.path.getsize(fpath) / 1024
+        print("  Reading: {} ({:.1f} KB)".format(fname, size_kb))
         with open(fpath, 'r', encoding='utf-8') as f:
             content = f.read()
-        combined_md += content + "\n\n---\n\n"
+        combined += content + "\n\n---\n\n"
+    return combined
 
-    print(f"\nTotal markdown content: {len(combined_md)/1024:.1f} KB")
+def build_chapter(chapter_num, args):
+    info = CHAPTERS[chapter_num]
+    chapter_dir = os.path.join(BASE_DIR, info["dir"])
 
-    # Pre-process LaTeX math before markdown conversion
-    combined_md = convert_latex_to_html(combined_md)
+    print("\n" + "=" * 60)
+    print("Building Chapter {}: {}".format(chapter_num, info['title']))
+    print("=" * 60)
 
-    # Convert markdown to HTML
-    print("Converting markdown to HTML...")
+    combined_md = read_markdown_files(chapter_dir, info["files"])
+    if not combined_md.strip():
+        print("  No content found for Chapter {}. Skipping.".format(chapter_num))
+        return None, None
+
+    print("\n  Total markdown: {:.1f} KB".format(len(combined_md)/1024))
+
+    print("  Converting LaTeX to MathML...")
+    combined_md = convert_latex(combined_md)
+
+    print("  Converting markdown to HTML...")
     md = markdown.Markdown(
-        extensions=[
-            'tables',
-            'fenced_code',
-            'toc',
-            'nl2br',
-            'sane_lists',
-        ]
+        extensions=['tables', 'fenced_code', 'toc', 'nl2br', 'sane_lists']
     )
     body_html = md.convert(combined_md)
 
-    # Post-process
     body_html = process_github_alerts(body_html)
     body_html = add_section_breaks(body_html)
 
-    # Build complete HTML document
-    title_page = build_title_page()
-    toc = build_toc()
+    title_page = build_title_page(chapter_num, info)
+    toc = build_toc(chapter_num, info)
 
-    full_html = f"""<!DOCTYPE html>
+    css_content = ""
+    if os.path.exists(CSS_FILE):
+        with open(CSS_FILE, 'r', encoding='utf-8') as f:
+            css_content = f.read()
+    else:
+        print("  Warning: {} not found. Using minimal CSS.".format(CSS_FILE))
+        css_content = "body { font-family: sans-serif; font-size: 11pt; }"
+
+    dark_mode_script = build_dark_mode_script()
+
+    # KaTeX auto-render delimiters need double braces in f-string
+    katex_delims = """{
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        }"""
+
+    full_html = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NEC Chapter 1 — Concept of Basic Electrical and Electronics Engineering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEC Chapter {ch} -- {title}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {katex_delims});"></script>
     <style>
-{CSS}
+{css}
     </style>
 </head>
-<body>
+<body class="markdown-preview-view">
     {title_page}
     {toc}
-    {body_html}
+    {body}
+    {dark_mode}
 </body>
-</html>"""
+</html>""".format(
+        ch=chapter_num,
+        title=info["title"],
+        katex_delims=katex_delims,
+        css=css_content,
+        title_page=title_page,
+        toc=toc,
+        body=body_html,
+        dark_mode=dark_mode_script
+    )
 
-    # Save HTML
-    print(f"Saving HTML: {OUTPUT_HTML}")
-    with open(OUTPUT_HTML, 'w', encoding='utf-8') as f:
+    output_html = os.path.join(BASE_DIR, "NEC_Chapter{}_Complete_Textbook.html".format(chapter_num))
+    print("  Saving HTML: {}".format(output_html))
+    with open(output_html, 'w', encoding='utf-8') as f:
         f.write(full_html)
-    print(f"HTML saved ({os.path.getsize(OUTPUT_HTML)/1024:.1f} KB)")
+    print("  HTML saved ({:.1f} KB)".format(os.path.getsize(output_html) / 1024))
 
-    # Convert to PDF using WeasyPrint
-    print("\nConverting HTML to PDF using WeasyPrint...")
-    try:
-        from weasyprint import HTML
-        HTML(filename=OUTPUT_HTML).write_pdf(OUTPUT_PDF)
-        size_mb = os.path.getsize(OUTPUT_PDF) / (1024 * 1024)
-        print(f"\n{'=' * 60}")
-        print(f"SUCCESS! PDF created: {OUTPUT_PDF}")
-        print(f"PDF size: {size_mb:.2f} MB")
-        print(f"{'=' * 60}")
-    except Exception as e:
-        print(f"WeasyPrint failed: {e}")
-        print("Trying pdfkit as fallback...")
+    output_pdf = None
+    if not args.html_only:
+        output_pdf = os.path.join(BASE_DIR, "NEC_Chapter{}_Complete_Textbook.pdf".format(chapter_num))
+        print("\n  Converting to PDF using WeasyPrint...")
         try:
-            import pdfkit
-            options = {
-                'page-size': 'A4',
-                'margin-top': '20mm',
-                'margin-bottom': '25mm',
-                'margin-left': '20mm',
-                'margin-right': '20mm',
-                'encoding': 'UTF-8',
-                'footer-center': 'Page [page] of [topage]',
-                'footer-font-size': '8',
-            }
-            pdfkit.from_file(OUTPUT_HTML, OUTPUT_PDF, options=options)
-            size_mb = os.path.getsize(OUTPUT_PDF) / (1024 * 1024)
-            print(f"\nSUCCESS! PDF created: {OUTPUT_PDF}")
-            print(f"PDF size: {size_mb:.2f} MB")
-        except Exception as e2:
-            print(f"pdfkit also failed: {e2}")
-            print(f"\nHTML file saved at: {OUTPUT_HTML}")
-            print("You can open it in a browser and print to PDF (Ctrl+P).")
+            from weasyprint import HTML as WeasyHTML
+            WeasyHTML(filename=output_html).write_pdf(output_pdf)
+            pdf_size = os.path.getsize(output_pdf) / (1024 * 1024)
+            print("  PDF saved: {} ({:.2f} MB)".format(output_pdf, pdf_size))
+        except Exception as e:
+            print("  WeasyPrint failed: {}".format(e))
+            print("  HTML file can be opened in browser and printed to PDF.")
+            output_pdf = None
+
+    return output_html, output_pdf
+
+def main():
+    parser = argparse.ArgumentParser(description="NEC License Exam Textbook Builder")
+    parser.add_argument("chapters", nargs="*", type=int,
+                        help="Chapter numbers to build (e.g. 1 2 3). Default: all chapters.")
+    parser.add_argument("--all", action="store_true", help="Build all 10 chapters")
+    parser.add_argument("--html-only", action="store_true", help="Generate HTML only, skip PDF")
+    args = parser.parse_args()
+
+    print("=" * 60)
+    print("  NEC License Exam -- Textbook Builder")
+    print("  LaTeX renderer: {} latex2mathml".format("Using" if HAS_LATEX2MATHML else "No"))
+    print("  CSS: {}".format(CSS_FILE))
+    print("  Base directory: {}".format(BASE_DIR))
+    print("=" * 60)
+
+    if args.all:
+        chapters_to_build = sorted(CHAPTERS.keys())
+    elif args.chapters:
+        chapters_to_build = [c for c in args.chapters if c in CHAPTERS]
+        invalid = [c for c in args.chapters if c not in CHAPTERS]
+        if invalid:
+            print("\nWarning: Invalid chapter numbers: {}. Valid: 1-10".format(invalid))
+    else:
+        chapters_to_build = sorted(CHAPTERS.keys())
+
+    print("\nChapters to build: {}".format(chapters_to_build))
+
+    results = []
+    for ch_num in chapters_to_build:
+        html_path, pdf_path = build_chapter(ch_num, args)
+        results.append((ch_num, html_path, pdf_path))
+
+    print("\n" + "=" * 60)
+    print("  BUILD SUMMARY")
+    print("=" * 60)
+    for ch_num, html_path, pdf_path in results:
+        status = "OK" if html_path else "FAILED"
+        html_size = "{:.1f} KB".format(os.path.getsize(html_path)/1024) if html_path else "N/A"
+        pdf_size = "{:.2f} MB".format(os.path.getsize(pdf_path)/(1024*1024)) if pdf_path else "Skipped"
+        print("  Chapter {}: {} | HTML: {} | PDF: {}".format(ch_num, status, html_size, pdf_size))
+    print("=" * 60)
 
 if __name__ == "__main__":
     main()

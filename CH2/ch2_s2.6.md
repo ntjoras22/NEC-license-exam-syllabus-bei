@@ -1,6 +1,6 @@
 # Section 2.6: Interrupt Operations (AExE0206)
 
-## Introduction
+## 📖 Introduction
 Interrupts are one of the most critical concepts in microprocessor architecture and real-time systems. They provide a mechanism for external devices to immediately grab the microprocessor's attention, pausing its current execution to handle an urgent task before resuming. This section covers the fundamental theory of interrupts, the specific interrupt structure of the 8085 microprocessor, the execution sequence of an Interrupt Service Routine (ISR), and the critical SIM/RIM instructions.
 
 ## 1. Interrupt Concept
@@ -24,7 +24,7 @@ An **interrupt** is an asynchronous signal sent to the microprocessor (by hardwa
 | **Hardware Setup** | Simple. | Complex (Requires interrupt lines). |
 | **Use Case** | Slow devices, simple systems. | Real-time systems, time-critical tasks. |
 
-## 2. Types of Interrupts in the 8085 Microprocessor
+## 📚 2. Types of Interrupts in the 8085 Microprocessor
 
 The 8085 microprocessor has a robust interrupt system, classified into **Hardware** and **Software** interrupts.
 
@@ -229,7 +229,7 @@ When `RIM` is executed, it loads an 8-bit pattern into the **Accumulator**.
 > [!IMPORTANT]  
 > **Pending Interrupts:** A pending interrupt is an interrupt request that has been received by the CPU but has not yet been serviced because interrupts are currently masked or disabled.
 
-## 6. Worked Examples
+## 🔍 6. Worked Examples
 
 ### Example 1: Configuring Interrupts with SIM
 **Problem:** Write a sequence of instructions to enable RST 7.5 and RST 5.5, while masking RST 6.5. Do not affect serial data.
@@ -320,7 +320,7 @@ As this concludes Chapter 2, here is a comprehensive review of the entire module
    - *Key Exam Focus:* SIM/RIM bits, Interrupt Priority, TRAP characteristics.
 
 ---
-## 8. Practice Problems for Exam Preparation
+## ✏️ 8. Practice Problems for Exam Preparation
 
 1. **Which of the following interrupts is non-maskable in the 8085 microprocessor?**
    a) RST 7.5

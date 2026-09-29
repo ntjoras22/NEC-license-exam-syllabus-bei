@@ -331,9 +331,11 @@ Electrically, a quartz crystal behaves like a complex RLC circuit.
 **Resonant Frequencies:**
 A crystal has two closely spaced resonant frequencies:
 1.  **Series Resonant Frequency ($f_s$):** Due to $L_s$ and $C_s$. Impedance is minimum.
-    $$f_s = \frac{1}{2\pi\sqrt{L_s C_s}}$$
+
+$$f_s = \frac{1}{2\pi\sqrt{L_s C_s}}$$
 2.  **Parallel Resonant Frequency ($f_p$):** Due to $L_s$ resonating with the series combination of $C_s$ and $C_p$. Impedance is maximum.
-    $$f_p = \frac{1}{2\pi\sqrt{L_s \left(\frac{C_s C_p}{C_s + C_p}\right)}}$$
+
+$$f_p = \frac{1}{2\pi\sqrt{L_s \left(\frac{C_s C_p}{C_s + C_p}\right)}}$$
 Since $C_p \gg C_s$, $f_p$ is slightly greater than $f_s$ (usually by less than 1%). The oscillator usually operates slightly above $f_s$, where the crystal behaves inductively.
 
 **Q Factor:**
@@ -401,7 +403,7 @@ Similar to a triangular wave, but the rise time is very different from the fall 
 
 ---
 
-## 7. Master Comparison Table
+## ⚖️ 7. Master Comparison Table
 
 | Parameter | Wien Bridge | Phase-Shift | Hartley | Colpitts | Crystal |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -414,7 +416,7 @@ Similar to a triangular wave, but the rise time is very different from the fall 
 
 ---
 
-## 8. Section Summary & NEC Exam Prep
+## ⭐ 8. Section Summary & NEC Exam Prep
 
 ### Key Equations
 | Description | Formula | Conditions |

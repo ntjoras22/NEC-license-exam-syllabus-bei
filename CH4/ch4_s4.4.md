@@ -1,10 +1,10 @@
 # Section 4.4: Hardware-Software Design Issues on Embedded System (ACtE0404)
 
-## 1. Introduction
+## 📖 1. Introduction
 
 With the miniaturization of electronics, computing power is no longer confined to desktop PCs and servers. It is now embedded into almost every electronic device around us. The design of these **Embedded Systems** presents unique challenges compared to general-purpose computing. Designers must carefully balance hardware and software trade-offs to meet strict constraints such as low power consumption, real-time performance, compact size, and low cost. This section explores the fundamental concepts, architectures, and design processes of embedded systems.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 
 > [!NOTE]
 > **Definition**: An **Embedded System** is a microprocessor- or microcontroller-based system designed to perform a specific, dedicated function or set of functions within a larger mechanical or electrical system, often with real-time computing constraints.
@@ -26,7 +26,7 @@ An embedded system generally consists of a processor, memory, and specialized I/
 *   **Automotive**: Anti-lock braking systems (ABS), airbag deployment, engine control.
 *   **IoT (Internet of Things)**: Smart thermostats, fitness trackers, connected home security.
 
-## 4. Classification of Embedded Systems
+## 🏷️ 4. Classification of Embedded Systems
 
 Embedded systems can be classified based on different criteria:
 
@@ -110,7 +110,7 @@ Embedded systems are typically developed using a **Cross-Platform Development** 
 3.  **In-Circuit Emulator (ICE)**: A hardware device that replaces the target microprocessor on the board, providing deep visibility into the system's internal state.
 4.  **JTAG (Joint Test Action Group)**: A standard hardware interface on modern chips used for programming flash memory and on-chip debugging (setting breakpoints, stepping through code directly on the silicon).
 
-## 10. Application-Specific Instruction-Set Processors (ASIPs)
+## 🔧 10. Application-Specific Instruction-Set Processors (ASIPs)
 
 > [!TIP]
 > **ASIPs** sit perfectly between general-purpose processors (highly flexible but inefficient) and custom hardware (highly efficient but inflexible). 
@@ -122,7 +122,7 @@ An **ASIP** is a processor whose instruction set architecture (ISA) has been tai
 *   **Graphics Processing Units (GPUs)**: Specialized for parallel processing of pixels/vertices.
 *   **Network Processing Units (NPUs)**: Specialized for fast packet inspection and routing in routers/switches.
 
-## 11. Worked Examples
+## 🔍 11. Worked Examples
 
 **Example 1: FSMD Resource Sharing Calculation**
 An algorithm requires $4$ multiplications and $2$ additions. A multiplier takes $2$ clock cycles, an adder takes $1$ cycle. 
@@ -130,13 +130,13 @@ An algorithm requires $4$ multiplications and $2$ additions. A multiplier takes 
 *Scenario B (Full sharing)*: We use $1$ multiplier and $1$ adder. The multiplications must happen sequentially ($4 \times 2 = 8$ cycles). Additions happen sequentially ($2 \times 1 = 2$ cycles). Total time = $10$ cycles.
 *Conclusion*: Resource sharing reduces silicon area dramatically but increases execution time. This is a classic Area-Time trade-off in embedded design.
 
-## 12. Exam Tips and Common Mistakes
+## 💡 12. Exam Tips and Common Mistakes
 *   **Harvard vs. Von Neumann**: A very common exam question. Remember Harvard = two buses/memories, faster.
 *   **Hard vs. Soft Real-Time**: Focus on the *consequence* of missing the deadline. Fatal = Hard. Annoying = Soft.
 *   **Cross-Compiler vs Native Compiler**: Native compiles for the machine it's running on. Cross-compiler compiles for a different machine architecture.
 *   **FSMD**: Know what FSMD stands for and the distinct roles of the Controller (control signals) and Datapath (data manipulation).
 
-## 13. Practice Problems
+## ✏️ 13. Practice Problems
 
 1.  **Which architecture allows simultaneous fetching of an instruction and data?**
     a) Von Neumann Architecture

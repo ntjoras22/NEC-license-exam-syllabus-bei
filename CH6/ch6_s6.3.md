@@ -1,5 +1,6 @@
-<Section 6.3: Communication System (AEiE0603)>
-## 1. Introduction
+## Section Communication System (AEiE0603)
+
+## 📖 1. Introduction
 Communication systems are designed to transmit information from a source to a destination reliably and efficiently. This section covers the foundational aspects of both analog and digital communication, focusing on signal representation, system bandwidth, signal distortion, and various modulation techniques (AM, FM, PM). This is a high-yield topic for the NEC exam.
 
 ## 2. Basic Building Blocks of Communication Systems
@@ -15,7 +16,8 @@ Every communication system comprises three essential components:
 -   **Signal**: The desired electrical or electromagnetic representation of the information.
 -   **Noise**: Unwanted, random electrical energy that interferes with the transmitted signal. Noise can be internal (thermal noise in electronics) or external (atmospheric, cosmic, industrial).
 -   **Signal-to-Noise Ratio (SNR)**: A critical parameter indicating system quality. It is the ratio of signal power to noise power.
-    $$SNR_{dB} = 10 \log_{10} \left( \frac{P_{signal}}{P_{noise}} \right)$$
+
+$$SNR_{dB} = 10 \log_{10} \left( \frac{P_{signal}}{P_{noise}} \right)$$
 
 ## 4. Low Pass and Band Pass Signals and Systems
 -   **Low Pass Signal**: A signal whose frequency spectrum is concentrated around zero frequency (DC) and drops off at higher frequencies. Baseband signals (like voice or unmodulated data) are low pass.
@@ -68,12 +70,17 @@ $$S_{AM}(f) = \frac{A_c}{2}[\delta(f-f_c) + \delta(f+f_c)] + \frac{1}{2}[M(f-f_c
 In angle modulation, the phase angle of the carrier is varied according to the message signal, while the amplitude remains constant.
 Let carrier $c(t) = A_c \cos(\theta_i(t))$.
 -   **Phase Modulation (PM)**: The instantaneous phase varies linearly with the message.
-    $$\theta_i(t) = 2\pi f_c t + k_p m(t)$$
-    $$s_{PM}(t) = A_c \cos(2\pi f_c t + k_p m(t))$$
+
+$$\theta_i(t) = 2\pi f_c t + k_p m(t)$$
+
+$$s_{PM}(t) = A_c \cos(2\pi f_c t + k_p m(t))$$
 -   **Frequency Modulation (FM)**: The instantaneous frequency varies linearly with the message. Instantaneous frequency $f_i(t) = \frac{1}{2\pi} \frac{d\theta_i(t)}{dt}$.
-    $$f_i(t) = f_c + k_f m(t)$$
-    $$\theta_i(t) = 2\pi f_c t + 2\pi k_f \int_0^t m(\tau) d\tau$$
-    $$s_{FM}(t) = A_c \cos\left(2\pi f_c t + 2\pi k_f \int_0^t m(\tau) d\tau\right)$$
+
+$$f_i(t) = f_c + k_f m(t)$$
+
+$$\theta_i(t) = 2\pi f_c t + 2\pi k_f \int_0^t m(\tau) d\tau$$
+
+$$s_{FM}(t) = A_c \cos\left(2\pi f_c t + 2\pi k_f \int_0^t m(\tau) d\tau\right)$$
 
 ### FM Bandwidth (Carson's Rule)
 For FM, the modulation index is $\beta = \frac{\Delta f}{f_m}$, where frequency deviation $\Delta f = k_f A_m$.
@@ -99,7 +106,7 @@ $$BW_{FM} \approx 2(\Delta f + f_m) = 2f_m(\beta + 1)$$
 
 ---
 
-## Worked Example
+## 🔍 Worked Example
 
 **Example 1**: An AM wave has a total power of 1000 Watts with a modulation index of 0.5. Calculate the carrier power and the power in each sideband.
 **Solution**:
@@ -111,7 +118,7 @@ Power in each sideband (USB or LSB) $= P_{SB} / 2 = 55.55$ Watts.
 
 ---
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > - Confusing the formulas for AM power vs FM bandwidth. In AM, power depends on the modulation index. In FM, the total transmitted power is *constant* regardless of modulation.
@@ -124,7 +131,7 @@ Power in each sideband (USB or LSB) $= P_{SB} / 2 = 55.55$ Watts.
 
 ---
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - Distortionless System: $|H(f)| = K$, $\angle H(f) = -2\pi f t_d$
@@ -134,7 +141,7 @@ Power in each sideband (USB or LSB) $= P_{SB} / 2 = 55.55$ Watts.
 
 ---
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. What is the Hilbert transform of $\cos(\omega_0 t)$?
    *Hint: The Hilbert transform delays all frequencies by $90^\circ$. $\cos(\omega_0 t - 90^\circ) = \sin(\omega_0 t)$.*

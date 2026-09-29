@@ -1,6 +1,6 @@
 # Section 2.5: Microprocessor System (AExE0205)
 
-## 1. Introduction
+## 📖 1. Introduction
 
 Welcome to **Section 2.5** of the NEC Registration Exam syllabus. Having covered digital logic and the core architecture of the 8085 microprocessor in earlier sections, this chapter bridges the gap between the CPU and the outside world. A microprocessor by itself cannot achieve much; it needs memory to store programs and data, and it requires I/O devices to interact with the environment. 
 
@@ -8,7 +8,7 @@ This section covers the memory hierarchy, methods for interfacing memory and I/O
 
 ---
 
-## 2. Memory Device Classification and Hierarchy
+## 🏷️ 2. Memory Device Classification and Hierarchy
 
 ### 2.1 The Memory Hierarchy
 
@@ -284,7 +284,7 @@ The Intel 8257 is a 4-channel DMA controller, meaning it can service up to 4 dif
 
 ---
 
-## 7. Key Formulas Summary
+## 📝 7. Key Formulas Summary
 
 | Metric | Formula/Rule |
 | :--- | :--- |
@@ -296,7 +296,7 @@ The Intel 8257 is a 4-channel DMA controller, meaning it can service up to 4 dif
 
 ---
 
-## 8. Common Mistakes / Exam Tips
+## 💡 8. Common Mistakes / Exam Tips
 
 > [!WARNING]
 > **Pitfalls to Avoid in the Exam:**
@@ -308,7 +308,7 @@ The Intel 8257 is a 4-channel DMA controller, meaning it can service up to 4 dif
 
 ---
 
-## 9. Practice Problems
+## ✏️ 9. Practice Problems
 
 **Q1.** Calculate the number of address lines required to interface a $16 \text{ KB} \times 8$ memory chip.
 **Answer:** $16 \text{ KB} = 16 \times 1024 = 2^4 \times 2^{10} = 2^{14}$ bytes. It requires **14 address lines** ($A_0 - A_{13}$).

@@ -1,14 +1,14 @@
 # Section 2.4: Microprocessor (AExE0204)
 
-## 1. Introduction
+## 📖 1. Introduction
 The microprocessor is the heart and brain of any computing system. In the context of the NEC Registration Exam, understanding the internal architecture, features, and assembly language programming of the Intel 8085 microprocessor is crucial. The 8085 serves as the foundational 8-bit architecture from which modern processors have evolved, providing essential insights into instruction execution, bus architecture, memory interfacing, and hardware-software interaction. 
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 A microprocessor acts as a programmable logic device that reads instructions from memory, accepts binary data as input, processes data according to those instructions, and provides results as output. 
 
 Imagine a head chef (the Microprocessor) in a kitchen (the Computer System). The chef reads recipes (Instructions) from a cookbook (Memory), gathers ingredients (Input Data) from the pantry (I/O devices), processes the ingredients by chopping and cooking (ALU operations), and finally serves the finished dish (Output Data) to the customer. The chef orchestrates the whole process using a set of rules and timing.
 
-## 3. Definition
+## ✏️ 3. Definition
 > **Microprocessor:** A microprocessor is a multipurpose, programmable, clock-driven, register-based electronic device that is built on a single integrated circuit (IC), which reads binary instructions from a storage device called memory, accepts binary data as input, processes data according to those instructions, and provides results as output.
 
 ## 4. Physical/Logical Meaning
@@ -146,7 +146,8 @@ The Flag Register is an 8-bit register containing 5 flip-flops that indicate the
 - **Instruction Cycle:** The time required by the microprocessor to fetch and execute one entire instruction.
 - **Machine Cycle:** The time required to complete one fundamental operation such as memory read, memory write, I/O read, or I/O write. An instruction cycle consists of 1 to 5 machine cycles.
 - **T-State:** One subdivision of a machine cycle, corresponding to one clock period of the microprocessor's clock signal.
-  $$ T = \frac{1}{f} $$
+
+$$ T = \frac{1}{f} $$
   For a 3 MHz clock, $T = 1 / 3\times10^6 = 0.33 \mu s$.
 
 ### 7.2 Opcode Fetch Cycle
@@ -254,7 +255,7 @@ Alter the normal sequential flow of execution.
 - `EI` / `DI`: Enable / Disable Interrupts.
 - `SIM` / `RIM`: Set / Read Interrupt Mask.
 
-## 9. Assembly Language Program Examples
+## 🔍 9. Assembly Language Program Examples
 
 ### Example 1: Addition of two 8-bit numbers
 **Problem:** Add two 8-bit numbers stored in 2000H and 2001H. Store the sum in 2002H and carry in 2003H.
@@ -334,20 +335,23 @@ HLT
 | **I/O Capability** | 256 I/O ports (8-bit address) | 65,536 I/O ports (16-bit address) |
 | **Multi-processing**| Not supported | Supported (Min/Max modes) |
 
-## 11. Key Formulas Summary
+## 📝 11. Key Formulas Summary
 
 > **Memory Size Calculation:**
-> $$ \text{Memory Capacity} = 2^N \text{ Bytes} $$
+
+$$ \text{Memory Capacity} = 2^N \text{ Bytes} $$
 > (Where N = number of address lines)
 > For 8085: $2^{16} = 65,536 = 64 \text{ KB}$
 >
 > **Execution Time Calculation:**
-> $$ \text{Instruction Execution Time} = (\text{Total T-States}) \times T $$
-> $$ T = \frac{1}{\text{Clock Frequency}} $$
+
+$$ \text{Instruction Execution Time} = (\text{Total T-States}) \times T $$
+
+$$ T = \frac{1}{\text{Clock Frequency}} $$
 > Example: An instruction takes 7 T-states at 2 MHz clock.
 > Execution Time = $7 \times \frac{1}{2 \times 10^6} = 3.5 \mu s$.
 
-## 12. Common Mistakes / Exam Tips
+## 💡 12. Common Mistakes / Exam Tips
 
 > [!WARNING]
 > **Subtractions and the Carry Flag:** During `SUB` or `CMP`, the Carry Flag acts as a **Borrow Flag**. If $A < R$, a borrow is needed, so CY=1. If $A \geq R$, CY=0.
@@ -360,7 +364,7 @@ HLT
 > 
 > **DAD Instruction:** `DAD B` adds BC to HL and stores the result in HL. It is the ONLY 16-bit arithmetic instruction that affects the Carry flag in 8085. It does not affect Z, S, P, AC.
 
-## 13. Practice Problems
+## ✏️ 13. Practice Problems
 
 **Q1:** What will be the contents of the Accumulator and Carry Flag after the following sequence of instructions?
 ```assembly

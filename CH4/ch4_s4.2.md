@@ -1,9 +1,9 @@
 # Section 4.2: Computer Arithmetic and Memory System (ACtE0402)
 
-## 1. Introduction
+## 📖 1. Introduction
 While the Control Unit orchestrates tasks, the ALU performs the heavy mathematical lifting, and the Memory System provides the data and instructions. Understanding computer arithmetic is essential to see how logic gates form complex mathematics. Furthermore, bridging the massive speed gap between the CPU and Main Memory requires an intricate Memory Hierarchy, primarily caching. This section covers binary arithmetic, logical operations, and the principles of modern memory systems.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 A computer processes numbers using binary representations. Therefore, arithmetic operations are essentially bit manipulations. The Memory System is organized as a hierarchy: smaller, faster memories are placed closer to the CPU, while larger, slower memories are placed further away.
 
 > [!NOTE] Definition
@@ -170,7 +170,7 @@ To build larger memory capacities or wider data buses, individual memory chips a
 *   **Increasing Capacity (Number of Words):** Connect chips in series using decoders. E.g., combining two 1K x 8-bit chips to make a 2K x 8-bit memory. Data lines are shared; high-order address bits are used with a decoder to select the correct chip (Chip Select/CS).
 
 ---
-## Key Formulas Summary
+## 📝 Key Formulas Summary
 
 | Metric | Formula |
 | :--- | :--- |
@@ -181,7 +181,7 @@ To build larger memory capacities or wider data buses, individual memory chips a
 | **Set-Assoc. Index Bits** | $\log_2(\text{Number of Sets})$ |
 
 ---
-## Practice Problems
+## ✏️ Practice Problems
 
 1. **Question:** In a direct-mapped cache, where does memory block 15 map if the cache has 8 lines?
    *Answer:* Cache Line = $15 \bmod 8 = 7$. It maps to line 7.

@@ -1,5 +1,6 @@
-<Section 7.2: Sorting, Searching, and Graphs (AEiE0702)>
-## 1. Introduction
+## Section Sorting, Searching, and Graphs (AEiE0702)
+
+## 📖 1. Introduction
 Sorting and searching are fundamental operations that determine the efficiency of software applications. Graphs model networks of information, and mastering graph algorithms is essential for routing, scheduling, and optimizing network flows. This section prepares you for exam questions targeting algorithmic efficiency and graph theory.
 
 ## 2. Types of Sorting: Internal and External
@@ -8,7 +9,7 @@ Sorting and searching are fundamental operations that determine the efficiency o
 > **Internal Sorting**: Sorting algorithms that require all data to be loaded into the main memory (RAM) at once (e.g., Quick Sort, Merge Sort).
 > **External Sorting**: Sorting algorithms used when data is too large to fit into RAM, requiring auxiliary storage like disk drives (e.g., External Merge Sort).
 
-## 3. Sorting Algorithms Comparison
+## ⚖️ 3. Sorting Algorithms Comparison
 
 | Algorithm | Best Case | Average Case | Worst Case | Space Complexity | Stable? |
 |-----------|-----------|--------------|------------|-------------------|---------|
@@ -93,7 +94,7 @@ Finds the shortest path from a source vertex to all other vertices in a weighted
    - Extract vertex $u$ with minimum distance.
    - For every adjacent vertex $v$ of $u$, if `dist[u] + weight(u, v) < dist[v]`, update `dist[v]` and push to the queue.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Applying Dijkstra's algorithm to graphs with negative weight edges will yield incorrect results. Use Bellman-Ford for negative weights.
@@ -101,14 +102,14 @@ Finds the shortest path from a source vertex to all other vertices in a weighted
 > [!TIP]
 > Always memorize the space and time complexities of sorting algorithms. They are frequently tested as multiple-choice questions.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - Binary search requires a sorted array.
 > - Maximum edges in a simple undirected graph with $V$ vertices is $V(V-1)/2$.
 > - BFS finds the shortest path in an unweighted graph.
 
-## Practice Problems
+## ✏️ Practice Problems
 1. Sort the array `[5, 2, 9, 1, 5, 6]` using Insertion Sort and show intermediate steps.
    - *Sketch:* `[2, 5, 9, 1, 5, 6]` -> `[2, 5, 9, 1, 5, 6]` -> `[1, 2, 5, 9, 5, 6]` -> ...
 2. Differentiate between Adjacency Matrix and Adjacency List representations.

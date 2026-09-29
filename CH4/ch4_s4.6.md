@@ -1,6 +1,6 @@
 # Section 4.6: Hardware Description Language and IC Technology (ACtE0406)
 
-## 1. Introduction
+## 📖 1. Introduction
 Hardware Description Languages (HDLs) are specialized computer languages used to describe the structure and behavior of electronic circuits, most commonly digital logic circuits. This section covers VHDL, one of the two primary HDLs (alongside Verilog), focusing on syntax, combinational and sequential logic design, pipelining, and IC technology concepts like FPGA and ASIC.
 
 ---
@@ -255,7 +255,7 @@ Programmable Logic Devices (PLDs) are the broader category that includes FPGAs.
 
 ---
 
-## 9. Common Mistakes / Exam Tips
+## 💡 9. Common Mistakes / Exam Tips
 > [!WARNING]
 > **Variable vs Signal in VHDL**: Signals (`<=`) are updated at the end of a process. Variables (`:=`) are updated immediately sequentially within a process.
 > 
@@ -265,7 +265,7 @@ Programmable Logic Devices (PLDs) are the broader category that includes FPGAs.
 
 ---
 
-## 10. Practice Problems
+## ✏️ 10. Practice Problems
 
 **Q1.** What is the purpose of the `entity` block in VHDL?
 A. To define the internal logic

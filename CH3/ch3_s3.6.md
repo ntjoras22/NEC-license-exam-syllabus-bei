@@ -1,6 +1,6 @@
 # Section 3.6: Generic Programming and Exception Handling (ACtE0306)
 
-## 1. Introduction
+## 📖 1. Introduction
 Generic programming and exception handling form the backbone of robust and reusable C++ software. **Generic programming** allows writing code that works with any data type, minimizing code duplication. **Exception handling** provides a structured way to handle runtime errors gracefully, replacing legacy C-style error codes. Both are heavily tested in the NEC exam.
 
 ## 2. Generic Programming with Templates
@@ -301,7 +301,7 @@ int main() {
 
 ---
 
-## 5. Summary of Key Formulas and Concepts
+## 📝 5. Summary of Key Formulas and Concepts
 > **Quick Reference**
 > - Template definition: `template <class T>`
 > - Scope resolution for outside class template functions: `template<class T> return_type ClassName<T>::func() {...}`
@@ -312,7 +312,7 @@ int main() {
 
 ---
 
-## 6. Practice Problems
+## ✏️ 6. Practice Problems
 
 **Q1: What happens if `catch(...)` is placed before `catch(int)`?**
 A: A compile-time error occurs. The catch-all handler must always be the last catch block in a sequence.

@@ -1,8 +1,9 @@
-<Section 7.4: Transaction Processing, Concurrency Control and Crash Recovery (AEiE0704)>
-## 1. Introduction
+## Section Transaction Processing, Concurrency Control and Crash Recovery (AEiE0704)
+
+## 📖 1. Introduction
 Transaction processing, concurrency control, and crash recovery are fundamental concepts in Database Management Systems (DBMS) ensuring data integrity and consistency. A transaction is a logical unit of work that must be either entirely completed or entirely aborted. In modern systems where multiple users access data concurrently, concurrency control mechanisms are essential to prevent data inconsistencies, while crash recovery ensures that data is not lost during system failures. For the NEC exam, understanding the ACID properties, serializability, locking protocols, and log-based recovery is crucial.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 A transaction represents a real-world event, such as transferring funds from one bank account to another. It involves a sequence of read and write operations on the database. 
 
 > [!NOTE] Definition
@@ -10,7 +11,7 @@ A transaction represents a real-world event, such as transferring funds from one
 > **Concurrency Control**: The process of managing simultaneous operations on a database without having them interfere with one another.
 > **Crash Recovery**: The process of restoring a database to a correct and consistent state after a system failure.
 
-## 3. ACID Properties
+## 📋 3. ACID Properties
 Every transaction must maintain the ACID properties to ensure database reliability.
 
 - **Atomicity**: The "all or nothing" rule. A transaction is treated as a single indivisible unit. Either all its operations are executed, or none are.
@@ -81,7 +82,7 @@ Protocols that ensure the system never enters a deadlock state.
 ### Deadlock Detection and Recovery
 Allow deadlocks to occur, periodically check for them using a **Wait-For Graph**, and recover by aborting a transaction (victim selection).
 
-## 7. Failure Classification
+## 🏷️ 7. Failure Classification
 - **Transaction failure**: Logical errors (bad input) or system errors (deadlock).
 - **System crash**: Hardware malfunction or OS bug causing loss of volatile storage (RAM) but non-volatile storage (disk) remains intact. Fail-stop assumption is usually made.
 - **Disk failure**: Loss of non-volatile storage (head crash). Handled using backups and RAID.
@@ -130,7 +131,7 @@ Reading the entire log for recovery is expensive. A checkpoint periodically save
 | **Overhead** | Locking/unlocking, deadlock detection | Timestamp maintenance |
 | **Best suited for** | High conflict environments | Low conflict environments |
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Do not confuse Strict 2PL with Rigorous 2PL. Strict holds only Exclusive locks until commit, Rigorous holds ALL locks until commit.
@@ -138,7 +139,7 @@ Reading the entire log for recovery is expensive. A checkpoint periodically save
 > [!TIP]
 > In precedence graph questions, remember: Cycle = Not Conflict Serializable. No Cycle = Conflict Serializable. For Wait-For graphs: Cycle = Deadlock.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - **ACID**: Atomicity, Consistency, Isolation, Durability.
@@ -147,7 +148,7 @@ Reading the entire log for recovery is expensive. A checkpoint periodically save
 > - **Wound-Wait**: Older wounds (kills) younger, younger waits.
 > - **Recovery**: Undo uncommitted, Redo committed.
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. Given the schedule $S = R_1(X), W_2(X), R_2(Y), W_1(Y)$, draw the precedence graph and determine if it is conflict serializable.
    *Answer sketch: $T_1$ reads $X$ before $T_2$ writes $X$ $\rightarrow T_1 \rightarrow T_2$. $T_2$ reads $Y$ before $T_1$ writes $Y$ $\rightarrow T_2 \rightarrow T_1$. The graph has a cycle. Not conflict serializable.*

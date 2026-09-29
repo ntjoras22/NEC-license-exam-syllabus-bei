@@ -1,5 +1,6 @@
-<Section 6.2: Wave Propagation and Antenna (AEiE0602)>
-## 1. Introduction
+## Section Wave Propagation and Antenna (AEiE0602)
+
+## 📖 1. Introduction
 This section explores time-varying electromagnetic fields, the cornerstone of wireless communication. We bridge the gap between statics and dynamics using Maxwell's equations and displacement current, study how waves propagate through different media, and finally examine how antennas radiate and receive these waves. This topic is heavily tested in the NEC exam for telecommunication and electronics roles.
 
 ## 2. Displacement Current
@@ -90,7 +91,7 @@ An antenna is a transducer that converts guided electromagnetic energy into radi
 - **Dipole Antenna**: The basic radiating element. A half-wave dipole ($L = \lambda/2$) has a directivity of 1.64 (2.15 dBi) and radiation resistance of 73 $\Omega$.
 - **Travelling Wave Antenna**: Current travels in one direction (no standing waves). Examples: Beverage antenna, Rhombic antenna, Helical antenna (in axial mode). They are characteristically broadband.
 
-## Worked Example
+## 🔍 Worked Example
 
 **Example 1**: A $100$ MHz uniform plane wave propagates in a lossless medium with $\varepsilon_r = 4$ and $\mu_r = 1$. Calculate the phase velocity and intrinsic impedance.
 **Solution**:
@@ -100,7 +101,7 @@ Intrinsic impedance $\eta = \sqrt{\frac{\mu}{\varepsilon}} = \sqrt{\frac{\mu_r \
 
 ---
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > - Confusing TE and TM modes. Remember: TE means $E$ is transverse (meaning $E_z = 0$).
@@ -113,7 +114,7 @@ Intrinsic impedance $\eta = \sqrt{\frac{\mu}{\varepsilon}} = \sqrt{\frac{\mu_r \
 
 ---
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - Free space intrinsic impedance: $\eta_0 \approx 377 \Omega$ or $120\pi \Omega$
@@ -123,7 +124,7 @@ Intrinsic impedance $\eta = \sqrt{\frac{\mu}{\varepsilon}} = \sqrt{\frac{\mu_r \
 
 ---
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. An electromagnetic wave has an electric field $\mathbf{E} = 10 \cos(\omega t - \beta z) \mathbf{a}_x$ V/m in free space. Find the corresponding magnetic field $\mathbf{H}$.
    *Hint: In free space, $E$ and $H$ are perpendicular, and their ratio is $\eta_0$. The wave propagates in $+z$ direction, $\mathbf{E}$ is in $+x$, so $\mathbf{H}$ must be in $+y$ ($\mathbf{a}_x \times \mathbf{a}_y = \mathbf{a}_z$).*

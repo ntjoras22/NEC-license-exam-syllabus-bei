@@ -1,12 +1,12 @@
 # Section 3.1: Introduction to C Programming (ACtE0301)
 
-## 1. Introduction
+## 📖 1. Introduction
 C is a general-purpose, procedural, imperative computer programming language developed in 1972 by Dennis M. Ritchie at the Bell Telephone Laboratories to develop the UNIX operating system. It is one of the most widely used programming languages and forms the foundation for many modern languages like C++, Java, and Python. For engineering students, C is crucial because it provides low-level memory access, a simple set of keywords, and a clean style, making it ideal for system programming and embedded systems.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 At its core, a C program is a collection of functions and variables. A function contains statements that specify the computing operations to be done, and variables store values used during the computation. The execution of a C program always begins with a special function named `main`.
 
-## 3. Definition
+## ✏️ 3. Definition
 > **C Programming Language:** A high-level, compiled, structured programming language that supports procedural programming and provides facilities for low-level memory manipulation.
 
 ## 4. Physical/Logical Meaning
@@ -124,7 +124,7 @@ Value:    |  10  |  20  |  30  |
 Address:  1000    1004    1008    (Assuming 4 bytes per int)
 ```
 
-## 7. Comparison Tables
+## ⚖️ 7. Comparison Tables
 
 | Feature | `while` Loop | `do-while` Loop |
 | :--- | :--- | :--- |
@@ -138,7 +138,7 @@ Address:  1000    1004    1008    (Assuming 4 bytes per int)
 | **Action** | Exits the nearest enclosing loop or switch | Skips current iteration, goes to next iteration |
 | **Applicability** | Loops and `switch` statements | Only in loops |
 
-## 8. Worked Examples
+## 🔍 8. Worked Examples
 
 ### Example 1: Recursive Function (Factorial)
 ```c
@@ -193,7 +193,7 @@ int main() {
 }
 ```
 
-## 9. Key Formulas Summary
+## 📝 9. Key Formulas Summary
 
 > [!NOTE]
 > **Important Mathematical Formulas in C:**
@@ -201,7 +201,7 @@ int main() {
 > *   **Memory size of 1D Array:** `Number of elements * sizeof(data_type)`
 > *   **Ternary Operator:** `Result = (Condition) ? Expression_if_True : Expression_if_False;`
 
-## 10. Common Mistakes / Exam Tips
+## 💡 10. Common Mistakes / Exam Tips
 
 > [!WARNING]
 > *   **Confusing `=` and `==`:** Using `=` (assignment) inside an `if` condition instead of `==` (equality) is a classic mistake. `if(a = 5)` evaluates to true (5 is non-zero) and assigns 5 to `a`.
@@ -213,7 +213,7 @@ int main() {
 > *   **Exam Strategy:** When writing code snippets in the exam, always include header files `#include <stdio.h>` and `int main()`.
 > *   Remember that `gets()` is highly discouraged in real-world programming, but you must know what it does for the exam.
 
-## 11. Practice Problems
+## ✏️ 11. Practice Problems
 
 1.  **Question:** Write a C program to find the Greatest Common Divisor (GCD) of two numbers using recursion.
     *Answer Sketch:* Use Euclidean algorithm: `gcd(a, b)` is `b == 0 ? a : gcd(b, a % b)`.

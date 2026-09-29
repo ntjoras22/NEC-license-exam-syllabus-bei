@@ -1,8 +1,9 @@
-<Section 6.1: Electric Field and Magnetic Field (AEiE0601)>
-## 1. Introduction
+## Section Electric Field and Magnetic Field (AEiE0601)
+
+## 📖 1. Introduction
 Electromagnetics is the foundation of communication systems and electronic engineering. This section covers static electric and magnetic fields, their properties, interactions with matter, and the boundary conditions governing these fields across different media. A strong grasp of these fundamental concepts is crucial for the NEC exam, as they form the basis for understanding wave propagation and antennas.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 Electric and magnetic fields are spatial distributions of forces exerted by stationary and moving charges, respectively. 
 
 > [!NOTE] Definition
@@ -18,7 +19,7 @@ where $\varepsilon_0 \approx 8.854 \times 10^{-12}$ F/m is the permittivity of f
 $$\mathbf{D} = \varepsilon \mathbf{E}$$
 where $\varepsilon = \varepsilon_0 \varepsilon_r$ is the permittivity of the medium. Unit of $\mathbf{D}$ is $C/m^2$.
 
-## 4. Significance of Divergence and Divergence Theorem
+## 🎓 4. Significance of Divergence and Divergence Theorem
 The divergence of a vector field represents the net outward flux per unit volume at a point.
 
 > [!NOTE] Definition
@@ -74,17 +75,22 @@ When an electric field crosses the interface between two different media (e.g., 
 Let $\mathbf{E}_t$ and $\mathbf{D}_t$ be tangential components, and $\mathbf{E}_n$ and $\mathbf{D}_n$ be normal components.
 
 1. **Tangential Components**: The tangential component of the electric field intensity is continuous across the boundary.
-   $$E_{t1} = E_{t2}$$
-   $$ \frac{D_{t1}}{\varepsilon_1} = \frac{D_{t2}}{\varepsilon_2} $$
+
+$$E_{t1} = E_{t2}$$
+
+$$ \frac{D_{t1}}{\varepsilon_1} = \frac{D_{t2}}{\varepsilon_2} $$
 2. **Normal Components**: The normal component of the electric flux density is discontinuous by the surface charge density ($\rho_s$) at the boundary.
-   $$D_{n1} - D_{n2} = \rho_s$$
+
+$$D_{n1} - D_{n2} = \rho_s$$
    If the boundary is charge-free ($\rho_s = 0$), then $D_{n1} = D_{n2}$.
 
 ## 10. Magnetic Field Intensity and Flux Density
 - **Magnetic Field Intensity ($\mathbf{H}$)**: Derived from the Biot-Savart Law or Ampere's Circuital Law.
-  $$\oint_L \mathbf{H} \cdot d\mathbf{l} = I_{enclosed}$$
+
+$$\oint_L \mathbf{H} \cdot d\mathbf{l} = I_{enclosed}$$
 - **Magnetic Flux Density ($\mathbf{B}$)**: Related to $\mathbf{H}$ by the permeability of the medium.
-  $$\mathbf{B} = \mu \mathbf{H}$$
+
+$$\mathbf{B} = \mu \mathbf{H}$$
   where $\mu = \mu_0 \mu_r$. $\mu_0 = 4\pi \times 10^{-7}$ H/m. Unit of $\mathbf{B}$ is Tesla (T) or $Wb/m^2$.
 
 ## 11. Magnetic Force and Torque
@@ -110,10 +116,13 @@ For linear materials, $\mathbf{M} = \chi_m \mathbf{H}$, where $\chi_m$ is the ma
 ## 13. Magnetic Boundary Conditions
 Similar to electric fields, when a magnetic field crosses the interface between two media:
 1. **Normal Components**: The normal component of the magnetic flux density is continuous across the boundary.
-   $$B_{n1} = B_{n2}$$
-   $$ \mu_1 H_{n1} = \mu_2 H_{n2} $$
+
+$$B_{n1} = B_{n2}$$
+
+$$ \mu_1 H_{n1} = \mu_2 H_{n2} $$
 2. **Tangential Components**: The tangential component of the magnetic field intensity is discontinuous by the surface current density ($\mathbf{K}$).
-   $$H_{t1} - H_{t2} = K$$
+
+$$H_{t1} - H_{t2} = K$$
    If the boundary is current-free ($K = 0$), then $H_{t1} = H_{t2}$.
 
 ---
@@ -132,7 +141,7 @@ Similar to electric fields, when a magnetic field crosses the interface between 
 
 ---
 
-## Worked Example
+## 🔍 Worked Example
 
 **Example 1**: Given the electric potential $V = 10x^2y + 5z$ Volts, find the electric field $\mathbf{E}$ at the point (1, 2, -1).
 **Solution**:
@@ -146,7 +155,7 @@ $\mathbf{E} = -20(1)(2) \mathbf{a}_x - 10(1)^2 \mathbf{a}_y - 5 \mathbf{a}_z = -
 
 ---
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > - Mixing up permittivity ($\varepsilon$) and permeability ($\mu$). Permittivity is for electric fields, permeability is for magnetic fields.
@@ -159,7 +168,7 @@ $\mathbf{E} = -20(1)(2) \mathbf{a}_x - 10(1)^2 \mathbf{a}_y - 5 \mathbf{a}_z = -
 
 ---
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - **Divergence Theorem**: $\oint_S \mathbf{A} \cdot d\mathbf{S} = \int_v (\nabla \cdot \mathbf{A}) dv$
@@ -168,7 +177,7 @@ $\mathbf{E} = -20(1)(2) \mathbf{a}_x - 10(1)^2 \mathbf{a}_y - 5 \mathbf{a}_z = -
 
 ---
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. Find the volume charge density $\rho_v$ if $\mathbf{D} = 2xy \mathbf{a}_x + x^2 \mathbf{a}_y + z \mathbf{a}_z$ $C/m^2$.
    *Hint: Use $\rho_v = \nabla \cdot \mathbf{D}$.*

@@ -1,5 +1,6 @@
-<Section 9.6: Soft Switching (AEiE0906)>
-## 1. Introduction
+## Section Soft Switching (AEiE0906)
+
+## 📖 1. Introduction
 Softswitching represents the migration of telecommunication networks from traditional, monolithic, hardware-centric systems (like TDM circuit switches) to distributed, software-centric, packet-based architectures. A softswitch separates the call control and signaling functions from the media/bearer transport. This separation is fundamental to Next-Generation Networks (NGN) and VoIP (Voice over IP). This section delves into softswitch architecture, VoIP integration, and broadband access technologies like DSL that enable modern converged services.
 
 ## 2. Softswitch Architecture
@@ -69,19 +70,19 @@ The "x" in xDSL represents various types of DSL technologies:
 | **VDSL** | Very-high-bit-rate | Short distances, very high speeds. FTTN/FTTC. | Up to 52 Mbps | Up to 16 Mbps |
 | **VDSL2** | VDSL 2 | Upgraded VDSL using frequencies up to 30 MHz. | Up to 100 Mbps| Up to 100 Mbps|
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 - **Softswitch definition**: Do not confuse a softswitch with a physical hardware router or PBX. It is the software intelligence (control plane) separated from the switching hardware (media plane).
 - **Asymmetric vs Symmetric**: Remember that ADSL is asymmetric (Down > Up), which matches typical residential internet usage patterns. SDSL is symmetric.
 - **Spectrum usage**: DSL works because it uses higher frequencies than POTS (Plain Old Telephone Service). If there is no splitter, high-frequency DSL signals will cause a hissing noise on telephone handsets.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 - **Control Plane**: MGC, Softswitch, Call Agent.
 - **Media Plane**: Media Gateway (MG).
 - **Control Protocols**: MGCP, H.248/Megaco.
 - **ENUM domain**: `.e164.arpa`
 - **ADSL typical bands**: Upstream ($25$ kHz - $138$ kHz), Downstream ($138$ kHz - $1.1$ MHz).
 
-## Practice Problems
+## ✏️ Practice Problems
 
 **Problem 1**: Why is the architecture of a softswitch considered a "separated" or "decoupled" architecture?
 **Answer Sketch**: Because it separates the control/signaling plane (handled by the MGC/Softswitch) from the media/bearer plane (handled by the Media Gateway). Traditional switches combine both functions in one box.

@@ -1,6 +1,6 @@
 # Section 1.2: Network Theorems and AC Circuits (AExE0102)
 
-## 1. Introduction
+## 📖 1. Introduction
 This section forms the backbone of electrical circuit analysis. Understanding how to simplify complex networks using theorems like Thevenin’s and Norton’s, and how energy behaves in AC circuits with resistors, inductors, and capacitors, is fundamental to every branch of electrical and electronics engineering. The NEC Engineering License Exam heavily tests these concepts because they bridge pure theory with practical engineering design.
 
 ## Part A: Network Theorems

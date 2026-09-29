@@ -6,7 +6,7 @@
 
 ---
 
-## Prerequisite Note
+## 📌 Prerequisite Note
 
 This section builds foundational concepts from the ground up. Even if you studied these in your BE program, review them carefully. NEC exam questions often test subtle understanding of fundamentals — not just formula recall.
 
@@ -14,11 +14,11 @@ This section builds foundational concepts from the ground up. Even if you studie
 
 # 1.1.1 ELECTRIC CHARGE
 
-## Introduction
+## 📖 Introduction
 
 Electric charge is the most fundamental quantity in electrical engineering. Every electrical phenomenon — from a simple flashlight circuit to a complex communication system — originates from the existence and movement of electric charges. Without understanding charge, nothing else in this chapter makes sense.
 
-## Why Is It Important?
+## ⚠️ Why Is It Important?
 
 An engineer needs the concept of charge because:
 - **Voltage** is defined as energy per unit charge
@@ -27,7 +27,7 @@ An engineer needs the concept of charge because:
 - **Coulomb's law** governs force between charges
 - All electromagnetic phenomena arise from charges (stationary or moving)
 
-## Basic Concept
+## 💡 Basic Concept
 
 All matter is composed of atoms. Each atom contains:
 
@@ -41,7 +41,7 @@ In a neutral atom, the number of protons equals the number of electrons. When an
 
 **The fundamental unit of charge is the charge of one electron (or proton).**
 
-## Definition
+## ✏️ Definition
 
 > **Electric charge** is a fundamental physical property of matter that causes it to experience a force when placed in an electromagnetic field. It is a scalar quantity measured in **coulombs (C)**.
 
@@ -55,7 +55,7 @@ Charge is not something you can see or touch directly. What you observe are its 
 
 Think of charge as a "label" on certain particles that determines how they interact with electric and magnetic fields.
 
-## Mathematical Formulation
+## 📈 Mathematical Formulation
 
 The charge of a single electron:
 
@@ -78,7 +78,7 @@ $$1 \text{ C} = \frac{1}{1.602 \times 10^{-19}} \approx 6.242 \times 10^{18} \te
 > [!NOTE]
 > One coulomb is an **enormous** amount of charge. In practical circuits, charges of microcoulombs (μC) or even picocoulombs (pC) are common in electronic devices.
 
-## Properties of Electric Charge
+## 📋 Properties of Electric Charge
 
 1. **Quantization**: Charge always exists in integer multiples of $e$. You cannot have $0.5e$.
 2. **Conservation**: Charge can neither be created nor destroyed. The total charge in an isolated system remains constant.
@@ -91,7 +91,7 @@ In circuit analysis, we rarely think about individual electrons. Instead, we wor
 - Why insulators don't (bound electrons)
 - Why semiconductors are special (controllable conductivity)
 
-## 💡 Engineering Intuition
+## 💡 💡 Engineering Intuition
 
 > Think of charge like water. You don't usually measure individual water molecules — you measure flow rate (current) and pressure (voltage). But knowing that water is made of molecules helps you understand why certain pipes (conductors) let water through and others (insulators) don't.
 
@@ -99,11 +99,11 @@ In circuit analysis, we rarely think about individual electrons. Instead, we wor
 
 # 1.1.2 ELECTRIC VOLTAGE (POTENTIAL DIFFERENCE)
 
-## Introduction
+## 📖 Introduction
 
 Voltage is arguably the most important concept in electrical engineering. It is the "driving force" that pushes electric charges through a circuit. Without voltage, there is no current, no power, and no useful work.
 
-## Why Is It Important?
+## ⚠️ Why Is It Important?
 
 - Voltage determines whether current will flow
 - Voltage ratings define the operating limits of every electrical device
@@ -111,7 +111,7 @@ Voltage is arguably the most important concept in electrical engineering. It is 
 - Understanding voltage is essential for applying Kirchhoff's Voltage Law (KVL)
 - Power calculation requires voltage: $P = VI$
 
-## Basic Concept — Building From Energy
+## 💡 Basic Concept — Building From Energy
 
 To move a charge against an electric field, you must do **work** on it (spend energy). This is analogous to lifting a mass against gravity — you expend energy, and the mass gains potential energy.
 
@@ -119,7 +119,7 @@ Similarly, when work is done to move a charge from one point to another in an el
 
 **Voltage (potential difference)** is defined as the work done per unit charge in moving a charge between two points.
 
-## Definition
+## ✏️ Definition
 
 > **Voltage** (or **potential difference**) between two points $A$ and $B$ is the work done per unit positive charge in moving a test charge from $B$ to $A$.
 
@@ -147,7 +147,7 @@ Higher Potential (+)        Lower Potential (−)
 > [!IMPORTANT]
 > **Voltage is always measured BETWEEN two points.** Saying "the voltage at point A" actually means "the voltage at point A with respect to some reference point (usually ground)."
 
-## Mathematical Formulation
+## 📈 Mathematical Formulation
 
 $$V = \frac{W}{Q}$$
 
@@ -183,7 +183,7 @@ $$\text{EMF} = \text{Sum of voltage drops around the loop}$$
 
 This is the foundation of **Kirchhoff's Voltage Law**, which we will study in detail later.
 
-## Worked Example
+## 🔍 Worked Example
 
 **Example 1.1**: A battery does 48 J of work to move 6 C of charge from its negative terminal to its positive terminal. What is the EMF of the battery?
 
@@ -229,7 +229,7 @@ This is the foundation of **Kirchhoff's Voltage Law**, which we will study in de
 2. **Sign of voltage**: Voltage can be positive or negative depending on the reference direction. In KVL, getting signs wrong is the most common error.
 3. **Voltage at a point**: Always ask "with respect to what?" There is no absolute voltage — only potential differences.
 
-## 💡 Engineering Intuition
+## 💡 💡 Engineering Intuition
 
 > Voltage is like the height difference in a waterfall. Water (charge) flows from high to low. The greater the height difference (voltage), the more energy the water (charge) carries. A pump (battery) lifts water back up (provides EMF), while the waterfall (resistor) converts that potential energy into kinetic energy and heat (voltage drop).
 
@@ -237,11 +237,11 @@ This is the foundation of **Kirchhoff's Voltage Law**, which we will study in de
 
 # 1.1.3 ELECTRIC CURRENT
 
-## Introduction
+## 📖 Introduction
 
 While voltage is the "cause," current is the "effect." Electric current is the flow of electric charges through a conductor. It is the quantity that actually does useful work in circuits — it heats filaments, spins motors, charges capacitors, and carries signals.
 
-## Why Is It Important?
+## ⚠️ Why Is It Important?
 
 - Current through a resistor determines heat dissipation ($P = I^2R$)
 - Current determines the magnetic field around a conductor
@@ -249,7 +249,7 @@ While voltage is the "cause," current is the "effect." Electric current is the f
 - Kirchhoff's Current Law is fundamental to circuit analysis
 - Signal processing deals with time-varying currents
 
-## Basic Concept
+## 💡 Basic Concept
 
 When a voltage (potential difference) is applied across a conductor, the free electrons inside the conductor experience an electric force and begin to drift from the region of lower potential (negative terminal) toward the region of higher potential (positive terminal).
 
@@ -278,7 +278,7 @@ This ordered movement of charges constitutes **electric current**.
 > [!IMPORTANT]
 > In circuit analysis and all engineering calculations, we use **conventional current direction** unless explicitly stated otherwise. This is a universal convention — do NOT mix up the two in NEC exam problems.
 
-## Definition
+## ✏️ Definition
 
 > **Electric current** is the rate of flow of electric charge through a cross-section of a conductor.
 
@@ -292,7 +292,7 @@ Current tells you **how many coulombs of charge pass through a point per second*
 
 If $I = 1$ A, it means $6.242 \times 10^{18}$ electrons pass through any cross-section of the conductor every second.
 
-## Mathematical Formulation
+## 📈 Mathematical Formulation
 
 ### For constant (DC) current:
 
@@ -329,7 +329,7 @@ $$[I] = \frac{[Q]}{[t]} = \frac{\text{C}}{\text{s}} = \text{A}$$
 | Nanoampere | nA | $10^{-9}$ A | Very sensitive instruments |
 | Kiloampere | kA | $10^3$ A | Power systems, lightning |
 
-## Types of Current
+## 📚 Types of Current
 
 | Type | Symbol | Description | Waveform |
 |------|--------|-------------|----------|
@@ -362,7 +362,7 @@ $$I = nAv_d e$$
 
 For copper, $v_d$ is typically on the order of $10^{-4}$ m/s (a fraction of a millimeter per second!). Yet the **signal** (electric field) propagates at nearly the speed of light, which is why a light turns on almost instantly when you flip a switch.
 
-## Worked Example
+## 🔍 Worked Example
 
 **Example 1.2**: A current of 2 A flows through a wire for 5 minutes. How much charge has passed through the wire?
 
@@ -416,7 +416,7 @@ $$Q = 36 - 2 = 34 \text{ C}$$
 2. **Current direction**: In circuit analysis, if you assume a current direction and get a negative answer, it means the actual current flows opposite to your assumed direction — it does NOT mean your analysis is wrong.
 3. **DC vs AC current**: In DC, $I = Q/t$ directly. For AC or time-varying current, you must integrate.
 
-## 💡 Engineering Intuition
+## 💡 💡 Engineering Intuition
 
 > Current is like the flow rate of water in a pipe. A 1-ampere current means 1 coulomb of charge passes any point per second. A thicker pipe (larger conductor cross-section) doesn't mean more current unless you increase the pressure (voltage). Current depends on voltage AND resistance.
 
@@ -424,13 +424,13 @@ $$Q = 36 - 2 = 34 \text{ C}$$
 
 # 1.1.4 RESISTANCE AND OHM'S LAW
 
-## Introduction
+## 📖 Introduction
 
 Resistance is the property of a material that **opposes** the flow of electric current. It is the "friction" of the electrical world. Understanding resistance is essential because every real conductor has some resistance, and this resistance determines how much current flows for a given voltage.
 
 **Ohm's Law** — the relationship between voltage, current, and resistance — is the single most important equation in electrical engineering.
 
-## Why Is It Important?
+## ⚠️ Why Is It Important?
 
 - Ohm's Law is the foundation of ALL circuit analysis
 - Resistance determines current for a given voltage
@@ -736,7 +736,7 @@ $$= \frac{4.4 - 3.667}{4.4} \times 100\% = \frac{0.733}{4.4} \times 100\% \appro
 
 **Engineering Interpretation:** The resistance increased by 20% (from 50 Ω to 60 Ω) due to temperature rise, causing the current to decrease by about 16.7%. This is why incandescent bulbs draw a large surge current when first turned on (filament is cold = low resistance) and then the current settles down as the filament heats up.
 
-## Applications
+## 🔧 Applications
 
 1. **Resistors in electronics**: Current limiting, voltage division, biasing
 2. **Heating elements**: Ohmic heating (electric stoves, heaters)
@@ -781,7 +781,7 @@ $$= \frac{4.4 - 3.667}{4.4} \times 100\% = \frac{0.733}{4.4} \times 100\% \appro
 
 5. **Sign convention**: Current ENTERS the positive terminal of a resistor. If you define the current the other way, you must use $V = -IR$.
 
-## 💡 Engineering Intuition — Ohm's Law
+## 💡 💡 Engineering Intuition — Ohm's Law
 
 > **Ohm's Law is not just a formula — it is a way of thinking.**
 > 
@@ -813,24 +813,24 @@ A useful memory aid:
 
 # 1.1.5 ELECTRIC POWER
 
-## Introduction
+## 📖 Introduction
 
 Power is the rate at which energy is transferred or converted. In electrical circuits, power tells us how fast a circuit element is converting electrical energy into another form (heat, light, mechanical energy, etc.) or how fast a source is supplying energy to the circuit.
 
-## Why Is It Important?
+## ⚠️ Why Is It Important?
 
 - Power determines the **rating** of every electrical device
 - Power dissipation determines **heat generation** (thermal management)
 - Power efficiency determines **energy costs** and **battery life**
 - Power calculations are needed for: component selection, safety analysis, efficiency calculations, and billing
 
-## Definition
+## ✏️ Definition
 
 > **Electric power** is the rate at which electrical energy is transferred by a circuit element.
 
 $$P = \frac{W}{t} = \frac{\text{Energy}}{\text{Time}}$$
 
-## Mathematical Formulation
+## 📈 Mathematical Formulation
 
 ### Fundamental Formula
 
@@ -941,17 +941,17 @@ $$\text{Cost} = 12 \times 10 = \text{NPR } 120$$
 
 # 1.1.6 ELECTRIC ENERGY
 
-## Introduction
+## 📖 Introduction
 
 While power tells us the *rate* of energy transfer, energy tells us the *total amount* of work done or energy consumed over a period of time. Energy is what you pay for in your electricity bill.
 
-## Definition
+## ✏️ Definition
 
 > **Electric energy** is the total amount of work done by or on electric charges over a period of time.
 
 $$W = Pt$$
 
-## Mathematical Formulation
+## 📈 Mathematical Formulation
 
 ### From power:
 
@@ -1010,7 +1010,7 @@ $$1 \text{ kWh} = 1 \text{ kilowatt} \times 1 \text{ hour} = 1000 \times 3600 = 
 | 7 | Electric Power | $P = VI = I^2R = V^2/R$ |
 | 8 | Electric Energy | $W = Pt = VIt$ |
 
-## Important Relationships Map
+## ⚠️ Important Relationships Map
 
 ```
     Charge (Q) ─── defines ─── Current (I = Q/t)

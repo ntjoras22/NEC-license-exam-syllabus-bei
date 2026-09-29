@@ -1,9 +1,9 @@
 # Section 4.1: Control and Central Processing Units (ACtE0401)
 
-## 1. Introduction
+## 📖 1. Introduction
 The Central Processing Unit (CPU) is the brain of any computer system, responsible for executing instructions and coordinating all other components. This section dives deep into the architecture, control mechanisms, instruction execution, and performance enhancements of the CPU. For the NEC exam, understanding the intricacies of control units, addressing modes, and pipelining is essential, as these dictate how a processor behaves and performs.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 At its core, a CPU fetches instructions from memory, decodes them to understand what needs to be done, fetches required operands, executes the operation, and stores the result back. The **Control Unit (CU)** is the conductor of this orchestra, sending timing and control signals to the Datapath (ALU and Registers).
 
 > [!NOTE] Definition
@@ -306,14 +306,18 @@ Hazards prevent the next instruction from executing in its designated clock cycl
 
 **Solution:**
 1.  **Pipelined Clock Cycle ($t_p$):** 
-    $$t_p = \text{Max}(10, 15, 12, 14) + \text{Latch Delay} = 15 + 1 = 16 \text{ ns}$$
+
+$$t_p = \text{Max}(10, 15, 12, 14) + \text{Latch Delay} = 15 + 1 = 16 \text{ ns}$$
 2.  **Time for 100 instructions ($T_k$):**
-    $$T_k = (k + n - 1) \times t_p = (4 + 100 - 1) \times 16 = 103 \times 16 = 1648 \text{ ns}$$
+
+$$T_k = (k + n - 1) \times t_p = (4 + 100 - 1) \times 16 = 103 \times 16 = 1648 \text{ ns}$$
 3.  **Non-pipelined Execution Time for 1 instr:** 
-    $$t_n = 10 + 15 + 12 + 14 = 51 \text{ ns}$$
+
+$$t_n = 10 + 15 + 12 + 14 = 51 \text{ ns}$$
     Total time = $100 \times 51 = 5100 \text{ ns}$
 4.  **Actual Speedup:** 
-    $$S = \frac{5100}{1648} = 3.09$$
+
+$$S = \frac{5100}{1648} = 3.09$$
 5.  **Max Theoretical Speedup:** 
     As $n \rightarrow \infty$, $S \rightarrow \frac{t_n}{t_p} = \frac{51}{16} = 3.18$
 
@@ -331,7 +335,7 @@ Flynn classified computer architectures based on the number of concurrent instru
 > Be prepared to identify real-world examples for Flynn's taxonomy. Modern desktop CPUs are MIMD, but they utilize SIMD instructions (like AVX) internally for media processing.
 
 ---
-## Practice Problems
+## ✏️ Practice Problems
 
 1. **Question:** What is the effective address if the instruction is `LOAD 50(R2)` where R2 contains `2000`?
    *Answer:* Indexed addressing mode. EA = R2 + 50 = 2000 + 50 = 2050.

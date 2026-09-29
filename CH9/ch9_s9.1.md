@@ -1,6 +1,6 @@
-</Agent System Instructions>
-<Section 9.1: Telecommunication and Wireless Communication (AEiE0901)>
-## 1. Introduction
+## Section 9.1 — Telecommunication and Wireless Communication (AEiE0901)
+
+## 📖 1. Introduction
 This section covers the fundamental principles of telecommunication and wireless systems. It is critical for the NEC exam as it builds the foundation for understanding how information is transmitted over various media, how channels are assigned, and how signal propagation is affected by the environment.
 
 ## 2. History and Generations of Telecommunication
@@ -79,7 +79,7 @@ The process of transferring an active call or data session from one cell in a ce
 - **Hard Handoff**: "Break before make." Current connection is broken before a new one is established (common in GSM).
 - **Soft Handoff**: "Make before break." Mobile is connected to two or more base stations simultaneously (common in CDMA).
 
-## 7. Small Scale Multipath Propagation and Fading
+## 💡 7. Small Scale Multipath Propagation and Fading
 Small-scale fading refers to rapid changes in radio signal amplitude and phase over a short period of time or travel distance.
 
 Caused by multipath propagation, where multiple versions of the transmitted signal arrive at the receiver at slightly different times. Effects include:
@@ -97,7 +97,7 @@ Where $r$ is the envelope amplitude and $\sigma^2$ is the time-average power of 
 > [!NOTE] Rician Fading
 > If there is a dominant stationary (non-fading) LOS signal component present, the small-scale fading envelope is described by a Rician distribution.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Do not confuse large-scale fading (path loss, shadowing) with small-scale fading (multipath, Doppler spread).
@@ -105,14 +105,14 @@ Where $r$ is the envelope amplitude and $\sigma^2$ is the time-average power of 
 > [!TIP]
 > For the Friis equation, remember that received power falls off as the square of the distance ($d^{-2}$), but in real-world urban environments, the path loss exponent is typically between 3 and 4 (i.e., $d^{-3}$ or $d^{-4}$).
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - Friis free space equation: $P_r(d) = \frac{P_t G_t G_r \lambda^2}{(4\pi)^2 d^2}$
 > - Wavelength: $\lambda = \frac{c}{f}$
 > - dBm conversion: $P(dBm) = 10 \log_{10}\left(\frac{P_{watts}}{1 mW}\right)$
 
-## Practice Problems
+## ✏️ Practice Problems
 1. Calculate the free space path loss in dB for a 2.4 GHz Wi-Fi signal at a distance of 100 meters. (Assume $G_t=G_r=1$).
    *Answer sketch: Find $\lambda = c/f = 0.125$ m. Path Loss $PL = -10 \log_{10}\left(\frac{\lambda^2}{(4\pi d)^2}\right) = 20 \log_{10}(\frac{4\pi d}{\lambda})$. $PL = 20 \log_{10}(\frac{4\pi \times 100}{0.125}) = 80$ dB.*
 

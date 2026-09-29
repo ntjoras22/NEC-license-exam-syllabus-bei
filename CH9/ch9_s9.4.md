@@ -1,5 +1,6 @@
-<Section 9.4: Data Communication Switching Techniques (AEiE0904)>
-## 1. Introduction
+## Section Data Communication Switching Techniques (AEiE0904)
+
+## 📖 1. Introduction
 Data Communication Switching Techniques form the backbone of modern telecommunication networks. In any network connecting multiple devices, it is impractical to have dedicated point-to-point links between every pair of devices. Switching provides a mechanism to establish temporary connections between devices to facilitate data transfer. This section covers the taxonomy of switched networks, various switching techniques, ISDN services, and multiple access techniques. For the NEC exam, understanding the differences between circuit switching and packet switching, as well as multiple access methods, is highly critical.
 
 ## 2. Taxonomy of Switched Networks
@@ -113,7 +114,7 @@ Spread spectrum techniques spread the bandwidth needed to transmit data over a w
 $$G_p = \frac{B_s}{B_m} = \frac{\text{Spread Bandwidth}}{\text{Message Bandwidth}}$$
 $$G_p (dB) = 10 \log_{10} \left( \frac{B_s}{B_m} \right)$$
 
-## 8. Multiple Access Techniques
+## 💡 8. Multiple Access Techniques
 Multiple access schemes allow multiple users to share a common communication medium.
 
 1. **FDMA (Frequency Division Multiple Access)**: The available frequency spectrum is divided into non-overlapping frequency bands, and each user is assigned a specific band for the duration of the communication.
@@ -123,18 +124,18 @@ Multiple access schemes allow multiple users to share a common communication med
 > [!IMPORTANT]
 > **CDMA Capacity**: Unlike FDMA and TDMA which have a hard limit on the number of users, CDMA is interference-limited, meaning its capacity degrades gracefully as more users are added.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 - **Confusion between VCI and IP address**: VCI is local to a link between switches, while an IP address is a global end-to-end address.
 - **ISDN PRI rates**: For Nepal, the E1 standard applies, so PRI is 30B+D (2.048 Mbps), not the T1 standard.
 - **Spread Spectrum**: Remember that spreading the spectrum decreases the power spectral density, making the signal look like noise to unauthorized receivers.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 - Total delay in circuit switching = Setup + Transmission + Propagation
 - $BRI = 2B + D = 2(64) + 16 = 144$ kbps
 - $PRI (E1) = 30B + 1D = 30(64) + 64 = 1984$ kbps (plus framing to make 2048 kbps)
 - Processing Gain: $G_p = B_s / B_m$
 
-## Practice Problems
+## ✏️ Practice Problems
 
 **Problem 1**: Consider a circuit-switched network where the setup time is $200$ ms, data transmission rate is $1$ Mbps, and the total propagation delay is $50$ ms. Calculate the total time required to transmit a $500$ KB file.
 **Solution Sketch**:

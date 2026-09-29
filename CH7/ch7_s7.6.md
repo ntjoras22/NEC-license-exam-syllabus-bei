@@ -1,8 +1,9 @@
-<Section 7.6: Memory Management, File Systems and System Administration (AEiE0706)>
-## 1. Introduction
+## Section Memory Management, File Systems and System Administration (AEiE0706)
+
+## 📖 1. Introduction
 Memory management, file systems, and system administration are critical pillars of operating system functionality. Memory management ensures efficient utilization of primary memory, file systems organize data on secondary storage, and system administration involves managing users and system operations. For the NEC exam, understanding virtual memory, paging, file mapping, and administration basics is essential.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 The OS must manage the memory hierarchy. Main memory (RAM) is fast but volatile and limited; disks are slow but non-volatile and large. The file system abstracts disk storage into logical files and directories.
 
 > [!NOTE] Definition
@@ -77,7 +78,7 @@ System administration involves configuring, managing, and maintaining a computer
 - **Booting (Start)**: Power-on self-test (POST), Master Boot Record (MBR) loaded, Bootloader (e.g., GRUB) executes, Kernel loaded into memory, init/systemd process starts.
 - **Shutdown**: Ensuring all processes are terminated gracefully, buffers are flushed to disk to prevent data corruption, and file systems are unmounted before powering off.
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Paging eliminates *external* fragmentation, but there can still be *internal* fragmentation in the last page of a process.
@@ -85,7 +86,7 @@ System administration involves configuring, managing, and maintaining a computer
 > [!TIP]
 > In page replacement questions, carefully trace the frame contents step-by-step. For LRU, always keep track of the most recently used time.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - **Page Number ($p$)**: Used as an index into a page table.
@@ -93,7 +94,7 @@ System administration involves configuring, managing, and maintaining a computer
 > - **Logical Address Space** $= 2^m$, **Page Size** $= 2^n$. Page number is $m-n$ bits, offset is $n$ bits.
 > - **Inode max file size**: Sum of direct blocks + indirect capacity + double indirect capacity... $\times$ block size.
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. Given a reference string: 7, 0, 1, 2, 0, 3, 0, 4, 2, 3 and 3 frames. How many page faults occur using FIFO?
    *Answer sketch: Trace memory: [7,-,-], [7,0,-], [7,0,1], [2,0,1], [2,0,1] (hit), [2,3,1], [2,3,0], [4,3,0], [4,2,0], [4,2,3]. Total page faults = 9.*

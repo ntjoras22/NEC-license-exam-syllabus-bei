@@ -1,9 +1,10 @@
-<Section 5.2: Data Link Layer (ACtE0502)>
+## Section Data Link Layer (ACtE0502)
 
-## 1. Introduction
+
+## 📖 1. Introduction
 The Data Link Layer (DLL) operates at layer 2 of the OSI model. While the Physical Layer simply transmits raw bits over a medium, the DLL is responsible for creating a reliable node-to-node link. It packages bits into frames, detects and potentially corrects transmission errors, and manages flow and access control.
 
-## 2. Basic Concept
+## 💡 2. Basic Concept
 The DLL ensures that data transferred from node A to node B over a direct physical link is error-free. It is subdivided into two sub-layers by the IEEE 802 standard:
 - **Logical Link Control (LLC)**: Handles framing, flow control, and error control.
 - **Media Access Control (MAC)**: Handles access to the shared medium and physical addressing.
@@ -71,7 +72,7 @@ Wi-Fi standard. Uses CSMA/CA.
 - Defines Infrastructure mode (using an Access Point) and Ad-hoc mode.
 - Uses techniques like Direct Sequence Spread Spectrum (DSSS) and Orthogonal Frequency Division Multiplexing (OFDM).
 
-## Common Mistakes / Exam Tips
+## 💡 Common Mistakes / Exam Tips
 
 > [!WARNING]
 > Do not confuse Go-Back-N with Selective Repeat. Go-Back-N resends the lost frame *and all subsequent frames*. Selective Repeat resends *only* the lost frame.
@@ -79,14 +80,14 @@ Wi-Fi standard. Uses CSMA/CA.
 > [!TIP]
 > Memorize the IEEE standards: 802.3 is Ethernet, 802.5 is Token Ring, 802.11 is Wi-Fi, 802.15 is Bluetooth.
 
-## Quick Reference / Formula Summary
+## 📝 Quick Reference / Formula Summary
 
 > [!IMPORTANT]
 > - **Hamming Redundant Bits Rule**: $2^r \ge m + r + 1$
 > - **Pure ALOHA Max Efficiency**: $S = \frac{1}{2e} \approx 18.4\%$
 > - **Slotted ALOHA Max Efficiency**: $S = \frac{1}{e} \approx 36.8\%$
 
-## Practice Problems
+## ✏️ Practice Problems
 
 1. **Problem**: Determine the number of redundant bits $r$ needed for $m=7$ data bits using Hamming code.
    *Answer Sketch*: Check $2^r \ge 7 + r + 1$. For $r=3$, $8 \ge 11$ (False). For $r=4$, $16 \ge 12$ (True). Therefore, $r=4$.
